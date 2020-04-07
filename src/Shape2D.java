@@ -1,3 +1,4 @@
+import javax.swing.*;
 import java.awt.*;
 import java.util.ArrayList;
 
@@ -5,23 +6,34 @@ public abstract class Shape2D implements Bouncable {
 
     protected Vector2D pos;
     protected Vector2D speed;
+    protected int size;
 
     protected Displayer d;
     protected Renderable r;
     protected Color c;
-    protected boolean isFull;
 
-    public abstract void draw();
 
-    Shape2D(Vector2D initPos, Vector2D initSpeed, Displayer d, boolean isFull)
+
+    Shape2D(Vector2D initPos, Vector2D initSpeed, int size, Renderable r)
     {
         pos = initPos;
         speed = initSpeed;
-        this.d = d;
-        this.isFull = isFull;
+        this.r = r;
+        this.size = size;
+
+        d = SingletonFrame.getInstance();
     }
 
-    public abstract Color getColor();
+    @Override
+    public void draw()
+    {
+        r.Display(d.getGraphics(), this);
+    }
+
+    @Override
+    public Color getColor() {
+        return c;
+    }
 
     public void move()
     {
@@ -51,13 +63,25 @@ public abstract class Shape2D implements Bouncable {
         }
     }
 
-    abstract int lowestX();
+    int lowestX()
+    {
+        return pos.getX();
+    }
 
-    abstract int highestX();
+    int highestX()
+    {
+        return pos.getX()+2*size;
+    }
 
-    abstract int lowestY();
+    int lowestY()
+    {
+        return pos.getY();
+    }
 
-    abstract int highestY();
+    int highestY()
+    {
+        return pos.getY()+2*size;
+    }
 
     public Renderable getRenderer()
     {

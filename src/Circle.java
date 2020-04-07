@@ -1,66 +1,19 @@
 import javax.swing.*;
 import java.awt.*;
+import java.awt.geom.Ellipse2D;
+import java.awt.geom.Rectangle2D;
 
 public class Circle extends Shape2D
 {
     int radius;
 
-    Circle(Vector2D initPos, Vector2D initSpeed, int r, Displayer d, boolean isFull)
+    Circle(Vector2D initPos, Vector2D initSpeed, int size, Renderable renderer)
     {
-        super(initPos, initSpeed, d, isFull);
-        radius = r;
-        if(isFull)
-        {
-            c = Color.BLUE;
-        }
-        else
-        {
-            c = Color.GREEN;
-        }
-
-    }
-
-    public void draw()
-    {
-        Graphics2D g = d.getGraphics();
-        g.setColor(c);
-        if(isFull)
-        {
-            g.fillOval(pos.getX(), pos.getY(), 2*radius, 2*radius);
-        }
-        else
-        {
-            g.drawOval(pos.getX(), pos.getY(), 2*radius, 2*radius);
-        }
+        super(initPos, initSpeed, size, renderer);
     }
 
     @Override
     public Shape getShape() {
-        return null;
-    }
-
-    @Override
-    public Color getColor() {
-        return c;
-    }
-
-    int lowestX()
-    {
-        return pos.getX();
-    }
-
-    int highestX()
-    {
-        return pos.getX()+2*radius;
-    }
-
-    int lowestY()
-    {
-        return pos.getY();
-    }
-
-    int highestY()
-    {
-        return pos.getY()+2*radius;
+        return new Ellipse2D.Double(pos.getX(), pos.getY(), highestX()-pos.getX(), highestY()-pos.getY());
     }
 }
