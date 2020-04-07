@@ -18,6 +18,7 @@ public abstract class Shape2D implements Bouncable {
         pos = initPos;
         speed = initSpeed;
         this.d = d;
+        this.isFull = isFull;
     }
 
     public abstract Color getColor();
@@ -27,7 +28,7 @@ public abstract class Shape2D implements Bouncable {
         pos.addVector(speed);
 
         SingletonFrame frame = SingletonFrame.getInstance();
-        if(frame.getHeight() < highestY())
+        if(d.getHeight() < highestY())
         {
             //pos.addVector(new Vector2D(0, -2*(pos.getY()-frame.getHeight())));
             speed.invertY();
@@ -38,7 +39,7 @@ public abstract class Shape2D implements Bouncable {
             speed.invertY();
         }
 
-        if(frame.getWidth() < highestX())
+        if(d.getWidth() < highestX())
         {
             //pos.addVector(new Vector2D(-2*(pos.getX()-frame.getWidth()), 0));
             speed.invertX();

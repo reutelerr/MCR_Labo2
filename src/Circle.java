@@ -9,14 +9,29 @@ public class Circle extends Shape2D
     {
         super(initPos, initSpeed, d, isFull);
         radius = r;
-        c = Color.BLUE;
+        if(isFull)
+        {
+            c = Color.BLUE;
+        }
+        else
+        {
+            c = Color.GREEN;
+        }
+
     }
 
     public void draw()
     {
         Graphics2D g = d.getGraphics();
         g.setColor(c);
-        g.fillOval(pos.getX(), pos.getY(), 2*radius, 2*radius);
+        if(isFull)
+        {
+            g.fillOval(pos.getX(), pos.getY(), 2*radius, 2*radius);
+        }
+        else
+        {
+            g.drawOval(pos.getX(), pos.getY(), 2*radius, 2*radius);
+        }
     }
 
     @Override
