@@ -1,7 +1,7 @@
 import javax.swing.*;
 import java.util.Random;
 
-abstract public class CreatorFactory implements BouncableFactory {
+public class BouncableFactoryBase {
     private static Random rand = new Random();
     private static final int MAXSIZE = 20;
     private static final int MINSIZE = 10;
@@ -9,8 +9,7 @@ abstract public class CreatorFactory implements BouncableFactory {
     private static final Displayer d = SingletonFrame.getInstance();
 
 
-    @Override
-    public Bouncable createCircle(Renderable r) {
+    public static Circle createCircle(Renderable r) {
         int[] attributes = generateAttributes();
 
         return new Circle(
@@ -21,8 +20,7 @@ abstract public class CreatorFactory implements BouncableFactory {
         );
     }
 
-    @Override
-    public Bouncable createRectangle(Renderable r) {
+    public static Rectangle createRectangle(Renderable r) {
         int[] attributes = generateAttributes();
 
         return new Rectangle(
@@ -34,7 +32,7 @@ abstract public class CreatorFactory implements BouncableFactory {
 
     }
 
-    private int[] generateAttributes(){
+    private static int[] generateAttributes(){
         int size = rand.nextInt(MAXSIZE - MINSIZE) + MINSIZE;
         int x = rand.nextInt(d.getWidth() - 2 * size) + size;
         int y = rand.nextInt(d.getHeight() - 2 * size) + size;

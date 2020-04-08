@@ -27,7 +27,7 @@ public abstract class Shape2D implements Bouncable {
     @Override
     public void draw()
     {
-        r.Display(d.getGraphics(), this);
+        r.display(d.getGraphics(), this);
     }
 
     @Override

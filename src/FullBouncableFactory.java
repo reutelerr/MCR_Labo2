@@ -1,13 +1,11 @@
-import java.util.Random;
-
-public class FullBouncableFactory extends CreatorFactory{
+public class FullBouncableFactory implements BouncableFactory {
     private static final Renderable renderer = FullRenderer.getInstance();
 
     public Bouncable createCircle() {
-        return super.createCircle(renderer);
+        return BouncableFactoryBase.createCircle(renderer);
     }
     public Bouncable createRectangle() {
-        return super.createRectangle(renderer);
+        return BouncableFactoryBase.createRectangle(renderer);
     }
    /* private static Random rand = new Random();
     private static final int MAXSIZE = 20;

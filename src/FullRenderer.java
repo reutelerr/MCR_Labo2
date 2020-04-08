@@ -7,7 +7,7 @@ public class FullRenderer implements  Renderable{
     }
 
     @Override
-    public void Display(Graphics2D g, Bouncable b) {
+    public void display(Graphics2D g, Bouncable b) {
         if(b instanceof Circle)
         {
             g.setColor(Color.BLUE);
@@ -21,6 +21,10 @@ public class FullRenderer implements  Renderable{
 
     public static FullRenderer getInstance()
     {
+        if(Instance.instance == null)
+        {
+            Instance.instance = new FullRenderer();
+        }
         return FullRenderer.Instance.instance;
     }
 }

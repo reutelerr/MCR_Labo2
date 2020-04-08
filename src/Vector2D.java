@@ -27,12 +27,6 @@ public class Vector2D {
         this.coords[1] = -this.coords[1];
     }
 
-    public void invert()
-    {
-        this.invertX();
-        this.invertY();
-    }
-
     public int getX()
     {
         return coords[0];

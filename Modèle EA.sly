@@ -1,107 +1,335 @@
 <?xml version="1.0" encoding="iso-8859-15" standalone="no"?>
 <classDiagram>
   <diagramElements defaultViewEntities="ALL" defaultViewEnum="true" defaultViewMethods="TYPE_AND_NAME" defaultVisibleTypes="true" informations="" name="">
-    <entity entityType="CLASS" id="14020" isAbstract="false" name="Shape2D" visibility="PUBLIC"/>
-    <entity entityType="CLASS" id="13909" isAbstract="false" name="EmptyBouncableFactory" visibility="PUBLIC"/>
-    <entity entityType="CLASS" id="13908" isAbstract="false" name="FullBouncableFactory" visibility="PUBLIC"/>
-    <entity entityType="CLASS" id="13853" isAbstract="true" name="BouncableFactory" visibility="PUBLIC">
-      <method isAbstract="true" isStatic="false" name="getCircles" returnType="LinkedList&lt;Circles&gt;" view="DEFAULT" visibility="PUBLIC">
-        <variable const="false" name="n" type="int"/>
+    <inheritance id="16772">
+      <child>14020</child>
+      <parent>14304</parent>
+    </inheritance>
+    <inheritance id="16771">
+      <child>13909</child>
+      <parent>14303</parent>
+    </inheritance>
+    <inheritance id="16770">
+      <child>13908</child>
+      <parent>14303</parent>
+    </inheritance>
+    <inheritance id="15411">
+      <child>13850</child>
+      <parent>14020</parent>
+    </inheritance>
+    <inheritance id="15410">
+      <child>13848</child>
+      <parent>14020</parent>
+    </inheritance>
+    <inheritance id="14540">
+      <child>13847</child>
+      <parent>13846</parent>
+    </inheritance>
+    <entity entityType="INTERFACE" id="13846" isAbstract="true" name="Displayer" visibility="PUBLIC">
+      <method isAbstract="true" isStatic="false" name="getHeight" returnType="int" view="DEFAULT" visibility="PUBLIC"/>
+      <method isAbstract="true" isStatic="false" name="getWidth" returnType="int" view="DEFAULT" visibility="PUBLIC"/>
+      <method isAbstract="true" isStatic="false" name="getGraphics" returnType="Graphics2D" view="DEFAULT" visibility="PUBLIC"/>
+      <method isAbstract="true" isStatic="false" name="repaint" returnType="void" view="DEFAULT" visibility="PUBLIC"/>
+      <method isAbstract="true" isStatic="false" name="setTitle" returnType="void" view="DEFAULT" visibility="PUBLIC">
+        <variable const="false" name="k" type="KeyAdapter"/>
       </method>
-      <method isAbstract="true" isStatic="false" name="getSquares" returnType="LinkedList&lt;Squares&gt;" view="DEFAULT" visibility="PUBLIC">
-        <variable const="false" name="n" type="int"/>
+      <method isAbstract="true" isStatic="false" name="addKeyListener" returnType="void" view="DEFAULT" visibility="PUBLIC"/>
+    </entity>
+    <entity entityType="CLASS" id="14307" isAbstract="false" name="Vector2D" visibility="PUBLIC">
+      <attribute const="false" defaultValue="" isStatic="false" name="coords" type="int[2]" visibility="PRIVATE"/>
+      <method isAbstract="false" isStatic="false" name="invertX" returnType="void" view="DEFAULT" visibility="PUBLIC"/>
+      <method isAbstract="false" isStatic="false" name="invertY" returnType="void" view="DEFAULT" visibility="PUBLIC"/>
+      <method isAbstract="false" isStatic="false" name="getX" returnType="int" view="DEFAULT" visibility="PUBLIC"/>
+      <method isAbstract="false" isStatic="false" name="getY" returnType="int" view="DEFAULT" visibility="PUBLIC"/>
+      <method isAbstract="false" isStatic="false" name="addVector" returnType="void" view="DEFAULT" visibility="PUBLIC">
+        <variable const="false" name="v" type="Vector2D"/>
       </method>
     </entity>
-    <entity entityType="CLASS" id="13851" isAbstract="false" name="Renderable" visibility="PUBLIC"/>
-    <entity entityType="CLASS" id="13850" isAbstract="false" name="Square" visibility="PUBLIC">
-      <attribute const="false" defaultValue="" isStatic="false" name="full" type="boolean" visibility="PRIVATE"/>
+    <entity entityType="CLASS" id="14306" isAbstract="false" name="FullRenderer" visibility="PUBLIC">
+      <attribute const="false" defaultValue="" isStatic="true" name="instance" type="FullRenderer" visibility="PRIVATE"/>
+      <method isAbstract="false" isStatic="true" name="getInstance" returnType="FullRenderer" view="DEFAULT" visibility="PUBLIC"/>
     </entity>
-    <entity entityType="CLASS" id="13849" isAbstract="true" name="Bouncable" visibility="PUBLIC"/>
-    <entity entityType="CLASS" id="13848" isAbstract="false" name="Circle" visibility="PUBLIC">
-      <attribute const="false" defaultValue="" isStatic="false" name="full" type="boolean" visibility="PRIVATE"/>
+    <entity entityType="INTERFACE" id="14305" isAbstract="true" name="Renderable" visibility="PUBLIC">
+      <method isAbstract="true" isStatic="false" name="display" returnType="void" view="DEFAULT" visibility="PUBLIC">
+        <variable const="false" name="g" type="Graphics2D"/>
+        <variable const="false" name="b" type="Bouncable"/>
+      </method>
     </entity>
-    <entity entityType="CLASS" id="13847" isAbstract="false" name="SingletonFrame" visibility="PUBLIC"/>
-    <entity entityType="INTERFACE" id="13846" isAbstract="true" name="Displayer" visibility="PUBLIC"/>
+    <entity entityType="INTERFACE" id="14304" isAbstract="true" name="Bouncable" visibility="PUBLIC">
+      <method isAbstract="true" isStatic="false" name="draw" returnType="void" view="DEFAULT" visibility="PUBLIC"/>
+      <method isAbstract="true" isStatic="false" name="move" returnType="void" view="DEFAULT" visibility="PUBLIC"/>
+      <method isAbstract="true" isStatic="false" name="getRenderer" returnType="Renderer" view="DEFAULT" visibility="PUBLIC"/>
+      <method isAbstract="true" isStatic="false" name="getColor" returnType="Color" view="DEFAULT" visibility="PUBLIC"/>
+      <method isAbstract="true" isStatic="false" name="getShape" returnType="Shape" view="DEFAULT" visibility="PUBLIC"/>
+    </entity>
+    <entity entityType="INTERFACE" id="14303" isAbstract="true" name="BouncableFactory" visibility="PUBLIC">
+      <method isAbstract="true" isStatic="false" name="createCircle" returnType="Circle" view="DEFAULT" visibility="PUBLIC"/>
+      <method isAbstract="true" isStatic="false" name="createRectangle" returnType="Rectangle" view="DEFAULT" visibility="PUBLIC"/>
+    </entity>
+    <entity entityType="CLASS" id="14301" isAbstract="false" name="EmptyRenderer" visibility="PUBLIC">
+      <attribute const="false" defaultValue="" isStatic="true" name="instance" type="EmptyRenderer" visibility="PRIVATE"/>
+      <method isAbstract="false" isStatic="true" name="getInstance" returnType="EmptyRenderer" view="DEFAULT" visibility="PUBLIC"/>
+    </entity>
+    <entity entityType="CLASS" id="14300" isAbstract="false" name="BouncableFactoryBase" visibility="PUBLIC">
+      <attribute const="false" defaultValue="" isStatic="true" name="rand" type="Random" visibility="PRIVATE"/>
+      <attribute const="false" defaultValue="" isStatic="true" name="MAXSIZE" type="int" visibility="PRIVATE"/>
+      <attribute const="false" defaultValue="" isStatic="true" name="MINSIZE" type="int" visibility="PRIVATE"/>
+      <attribute const="false" defaultValue="" isStatic="true" name="MAX_CARTESIAN_SPEED" type="int" visibility="PRIVATE"/>
+      <attribute const="false" defaultValue="" isStatic="true" name="d" type="Displayer" visibility="PRIVATE"/>
+      <method isAbstract="false" isStatic="true" name="createCircle" returnType="Circle" view="DEFAULT" visibility="PUBLIC">
+        <variable const="false" name="r" type="Renderable"/>
+      </method>
+      <method isAbstract="false" isStatic="true" name="createRectangle" returnType="Rectangle" view="DEFAULT" visibility="PUBLIC">
+        <variable const="false" name="r" type="Renderable"/>
+      </method>
+      <method isAbstract="false" isStatic="true" name="generateAttributes" returnType="int[]" view="DEFAULT" visibility="PRIVATE"/>
+    </entity>
+    <entity entityType="CLASS" id="13850" isAbstract="false" name="Square" visibility="PUBLIC"/>
+    <entity entityType="CLASS" id="13847" isAbstract="false" name="SingletonFrame" visibility="PUBLIC">
+      <attribute const="false" defaultValue="" isStatic="false" name="image" type="Image" visibility="PRIVATE"/>
+      <attribute const="false" defaultValue="" isStatic="false" name="frame" type="JFrame" visibility="PRIVATE"/>
+      <attribute const="false" defaultValue="" isStatic="true" name="instance" type="SingletonFrame" visibility="PRIVATE"/>
+      <method isAbstract="false" isStatic="true" name="getInstance" returnType="SingletonFrame" view="DEFAULT" visibility="PUBLIC"/>
+      <method isAbstract="false" isStatic="false" name="createImage" returnType="Image" view="DEFAULT" visibility="PUBLIC">
+        <variable const="false" name="width" type="int"/>
+        <variable const="false" name="height" type="int"/>
+      </method>
+    </entity>
+    <entity entityType="CLASS" id="13848" isAbstract="false" name="Circle" visibility="PUBLIC"/>
+    <entity entityType="CLASS" id="13908" isAbstract="false" name="FullBouncableFactory" visibility="PUBLIC">
+      <attribute const="false" defaultValue="" isStatic="true" name="renderer" type="FullRenderer" visibility="PRIVATE"/>
+    </entity>
+    <entity entityType="CLASS" id="13909" isAbstract="false" name="EmptyBouncableFactory" visibility="PUBLIC">
+      <attribute const="false" defaultValue="" isStatic="true" name="renderer" type="EmptyRenderer" visibility="PRIVATE"/>
+    </entity>
+    <entity entityType="CLASS" id="14020" isAbstract="true" name="Shape2D" visibility="PUBLIC">
+      <attribute const="false" defaultValue="" isStatic="false" name="pos" type="Vector2D" visibility="PROTECTED"/>
+      <attribute const="false" defaultValue="" isStatic="false" name="speed" type="Vector2D" visibility="PROTECTED"/>
+      <attribute const="false" defaultValue="" isStatic="false" name="size" type="int" visibility="PROTECTED"/>
+      <attribute const="false" defaultValue="" isStatic="false" name="d" type="Displayer" visibility="PROTECTED"/>
+      <attribute const="false" defaultValue="" isStatic="false" name="r" type="Renderable" visibility="PROTECTED"/>
+      <attribute const="false" defaultValue="" isStatic="false" name="c" type="Color" visibility="PROTECTED"/>
+      <method isAbstract="true" isStatic="false" name="lowestX" returnType="int" view="DEFAULT" visibility="PUBLIC"/>
+      <method isAbstract="true" isStatic="false" name="highestX" returnType="int" view="DEFAULT" visibility="PUBLIC"/>
+      <method isAbstract="true" isStatic="false" name="lowestY" returnType="int" view="DEFAULT" visibility="PUBLIC"/>
+      <method isAbstract="true" isStatic="false" name="highestY" returnType="int" view="DEFAULT" visibility="PUBLIC"/>
+    </entity>
   </diagramElements>
   <umlView grid="10" name="Main view" open="true">
-    <componentView color="-2079" componentID="13846" displayAttributes="true" displayDefault="true" displayMethods="true">
+    <relationView color="-12566464" relationId="14540">
+      <line>
+        <point>
+          <x>381</x>
+          <y>321</y>
+        </point>
+        <point>
+          <x>381</x>
+          <y>240</y>
+        </point>
+      </line>
+    </relationView>
+    <relationView color="-12566464" relationId="15410">
+      <line>
+        <point>
+          <x>591</x>
+          <y>531</y>
+        </point>
+        <point>
+          <x>591</x>
+          <y>481</y>
+        </point>
+        <point>
+          <x>711</x>
+          <y>481</y>
+        </point>
+        <point>
+          <x>711</x>
+          <y>416</y>
+        </point>
+      </line>
+    </relationView>
+    <relationView color="-12566464" relationId="15411">
+      <line>
+        <point>
+          <x>831</x>
+          <y>531</y>
+        </point>
+        <point>
+          <x>831</x>
+          <y>481</y>
+        </point>
+        <point>
+          <x>711</x>
+          <y>481</y>
+        </point>
+        <point>
+          <x>711</x>
+          <y>416</y>
+        </point>
+      </line>
+    </relationView>
+    <relationView color="-12566464" relationId="16770">
+      <line>
+        <point>
+          <x>1291</x>
+          <y>261</y>
+        </point>
+        <point>
+          <x>1291</x>
+          <y>231</y>
+        </point>
+        <point>
+          <x>1421</x>
+          <y>231</y>
+        </point>
+        <point>
+          <x>1421</x>
+          <y>180</y>
+        </point>
+      </line>
+    </relationView>
+    <relationView color="-12566464" relationId="16771">
+      <line>
+        <point>
+          <x>1541</x>
+          <y>261</y>
+        </point>
+        <point>
+          <x>1541</x>
+          <y>231</y>
+        </point>
+        <point>
+          <x>1421</x>
+          <y>231</y>
+        </point>
+        <point>
+          <x>1421</x>
+          <y>180</y>
+        </point>
+      </line>
+    </relationView>
+    <relationView color="-12566464" relationId="16772">
+      <line>
+        <point>
+          <x>711</x>
+          <y>211</y>
+        </point>
+        <point>
+          <x>711</x>
+          <y>165</y>
+        </point>
+      </line>
+    </relationView>
+    <componentView color="-2079" componentID="14020" displayAttributes="true" displayDefault="true" displayMethods="true">
       <geometry>
-        <x>260</x>
-        <y>40</y>
-        <w>150</w>
-        <h>69</h>
-      </geometry>
-    </componentView>
-    <componentView color="-2079" componentID="13847" displayAttributes="true" displayDefault="true" displayMethods="true">
-      <geometry>
-        <x>260</x>
-        <y>140</y>
-        <w>150</w>
-        <h>55</h>
-      </geometry>
-    </componentView>
-    <componentView color="-2079" componentID="13848" displayAttributes="true" displayDefault="true" displayMethods="true">
-      <geometry>
-        <x>550</x>
-        <y>220</y>
-        <w>150</w>
-        <h>70</h>
-      </geometry>
-    </componentView>
-    <componentView color="-2079" componentID="13849" displayAttributes="true" displayDefault="true" displayMethods="true">
-      <geometry>
-        <x>660</x>
-        <y>40</y>
-        <w>150</w>
-        <h>55</h>
-      </geometry>
-    </componentView>
-    <componentView color="-2079" componentID="13850" displayAttributes="true" displayDefault="true" displayMethods="true">
-      <geometry>
-        <x>760</x>
-        <y>220</y>
-        <w>150</w>
-        <h>70</h>
-      </geometry>
-    </componentView>
-    <componentView color="-2079" componentID="13851" displayAttributes="true" displayDefault="true" displayMethods="true">
-      <geometry>
-        <x>1220</x>
-        <y>40</y>
-        <w>150</w>
-        <h>55</h>
-      </geometry>
-    </componentView>
-    <componentView color="-2079" componentID="13853" displayAttributes="true" displayDefault="true" displayMethods="true">
-      <geometry>
-        <x>1050</x>
-        <y>280</y>
-        <w>350</w>
-        <h>85</h>
-      </geometry>
-    </componentView>
-    <componentView color="-2079" componentID="13908" displayAttributes="true" displayDefault="true" displayMethods="true">
-      <geometry>
-        <x>1010</x>
-        <y>400</y>
-        <w>150</w>
-        <h>55</h>
+        <x>610</x>
+        <y>210</y>
+        <w>200</w>
+        <h>205</h>
       </geometry>
     </componentView>
     <componentView color="-2079" componentID="13909" displayAttributes="true" displayDefault="true" displayMethods="true">
       <geometry>
-        <x>1240</x>
-        <y>400</y>
+        <x>1430</x>
+        <y>260</y>
         <w>220</w>
+        <h>70</h>
+      </geometry>
+    </componentView>
+    <componentView color="-2079" componentID="13908" displayAttributes="true" displayDefault="true" displayMethods="true">
+      <geometry>
+        <x>1210</x>
+        <y>260</y>
+        <w>150</w>
+        <h>70</h>
+      </geometry>
+    </componentView>
+    <componentView color="-2079" componentID="13848" displayAttributes="true" displayDefault="true" displayMethods="true">
+      <geometry>
+        <x>520</x>
+        <y>530</y>
+        <w>150</w>
         <h>55</h>
       </geometry>
     </componentView>
-    <componentView color="-2079" componentID="14020" displayAttributes="true" displayDefault="true" displayMethods="true">
+    <componentView color="-2079" componentID="13847" displayAttributes="true" displayDefault="true" displayMethods="true">
       <geometry>
-        <x>660</x>
-        <y>130</y>
+        <x>230</x>
+        <y>320</y>
+        <w>270</w>
+        <h>130</h>
+      </geometry>
+    </componentView>
+    <componentView color="-2079" componentID="13850" displayAttributes="true" displayDefault="true" displayMethods="true">
+      <geometry>
+        <x>750</x>
+        <y>530</y>
         <w>150</w>
         <h>55</h>
+      </geometry>
+    </componentView>
+    <componentView color="-2079" componentID="14300" displayAttributes="true" displayDefault="true" displayMethods="true">
+      <geometry>
+        <x>1680</x>
+        <y>130</y>
+        <w>310</w>
+        <h>175</h>
+      </geometry>
+    </componentView>
+    <componentView color="-2079" componentID="14301" displayAttributes="true" displayDefault="true" displayMethods="true">
+      <geometry>
+        <x>520</x>
+        <y>770</y>
+        <w>240</w>
+        <h>85</h>
+      </geometry>
+    </componentView>
+    <componentView color="-2079" componentID="14303" displayAttributes="true" displayDefault="true" displayMethods="true">
+      <geometry>
+        <x>1310</x>
+        <y>80</y>
+        <w>210</w>
+        <h>99</h>
+      </geometry>
+    </componentView>
+    <componentView color="-2079" componentID="14304" displayAttributes="true" displayDefault="true" displayMethods="true">
+      <geometry>
+        <x>570</x>
+        <y>20</y>
+        <w>270</w>
+        <h>144</h>
+      </geometry>
+    </componentView>
+    <componentView color="-2079" componentID="14305" displayAttributes="true" displayDefault="true" displayMethods="true">
+      <geometry>
+        <x>640</x>
+        <y>640</y>
+        <w>270</w>
+        <h>84</h>
+      </geometry>
+    </componentView>
+    <componentView color="-2079" componentID="14306" displayAttributes="true" displayDefault="true" displayMethods="true">
+      <geometry>
+        <x>800</x>
+        <y>770</y>
+        <w>230</w>
+        <h>85</h>
+      </geometry>
+    </componentView>
+    <componentView color="-2079" componentID="14307" displayAttributes="true" displayDefault="true" displayMethods="true">
+      <geometry>
+        <x>910</x>
+        <y>120</y>
+        <w>210</w>
+        <h>145</h>
+      </geometry>
+    </componentView>
+    <componentView color="-2079" componentID="13846" displayAttributes="true" displayDefault="true" displayMethods="true">
+      <geometry>
+        <x>270</x>
+        <y>80</y>
+        <w>220</w>
+        <h>159</h>
       </geometry>
     </componentView>
   </umlView>
