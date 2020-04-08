@@ -1,4 +1,3 @@
-import javax.swing.*;
 import java.awt.*;
 import java.util.Random;
 
@@ -11,8 +10,13 @@ public class EmptyBouncableFactory extends CreatorFactory{
     public Bouncable createRectangle() {
         return super.createRectangle(renderer);
     }
+  /*  private static Random rand = new Random();
+    private static final int MAXSIZE = 20;
+    private static final int MINSIZE = 10;
+    private static final int MAX_CARTESIAN_SPEED = 3;
 
-   /* @Override
+
+    @Override
     public Bouncable createCircle(Displayer d) {
         int size = rand.nextInt(MAXSIZE-MINSIZE) + MINSIZE;
         int x = rand.nextInt(d.getWidth()-2*size) + size;
