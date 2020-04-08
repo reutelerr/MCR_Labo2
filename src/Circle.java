@@ -9,8 +9,7 @@ public class Circle extends Shape2D
     }
 
     @Override
-    public Shape2D getShape() {
-        return new Circle(pos, speed, size, r);
-       // return new Ellipse2D.Double(pos.getX(), pos.getY(), highestX()-pos.getX(), highestY()-pos.getY());
+    public Shape getShape() {
+       return new Ellipse2D.Double(pos.getX(), pos.getY(), highestX()-pos.getX(), highestY()-pos.getY());
     }
 }

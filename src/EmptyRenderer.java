@@ -10,15 +10,12 @@ public class EmptyRenderer implements  Renderable{
         if(b instanceof Circle)
         {
             g.setColor(Color.GREEN);
-            //g.draw(b.getShape());
-            g.drawOval(((Circle) b).pos.getX(), ((Circle) b).pos.getY(), ((Circle) b).size, ((Circle) b).size);
         }
         else if(b instanceof Rectangle)
         {
             g.setColor(Color.RED);
-            //g.draw(b.getShape());
-            g.drawRect(((Rectangle) b).pos.getX(), ((Rectangle) b).pos.getY(), ((Rectangle) b).size, ((Rectangle) b).size);
         }
+        g.draw(b.getShape());
     }
 
     public static EmptyRenderer getInstance()

@@ -10,8 +10,7 @@ public class Rectangle extends Shape2D
     }
 
     @Override
-    public Shape2D getShape() {
-        return new Rectangle(pos, speed , size, r);
-       // return new Rectangle2D.Double(pos.getX(), pos.getY(), highestX()-pos.getX(), highestY()-pos.getY());
+    public Shape getShape() {
+       return new Rectangle2D.Double(pos.getX(), pos.getY(), highestX()-pos.getX(), highestY()-pos.getY());
     }
 }
