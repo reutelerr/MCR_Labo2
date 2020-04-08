@@ -1,10 +1,10 @@
 public class FullBouncableFactory implements BouncableFactory {
     private static final Renderable renderer = FullRenderer.getInstance();
 
-    public Bouncable createCircle() {
+    public Circle createCircle() {
         return BouncableFactoryBase.createCircle(renderer);
     }
-    public Bouncable createRectangle() {
+    public Rectangle createRectangle() {
         return BouncableFactoryBase.createRectangle(renderer);
     }
    /* private static Random rand = new Random();
