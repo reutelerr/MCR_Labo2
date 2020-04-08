@@ -1,7 +1,15 @@
 import java.util.Random;
 
-public class FullBouncableFactory implements BouncableFactory{
-    private static Random rand = new Random();
+public class FullBouncableFactory extends CreatorFactory{
+    private static final Renderable renderer = FullRenderer.getInstance();
+
+    public Bouncable createCircle() {
+        return super.createCircle(renderer);
+    }
+    public Bouncable createRectangle() {
+        return super.createRectangle(renderer);
+    }
+   /* private static Random rand = new Random();
     private static final int MAXSIZE = 20;
     private static final int MINSIZE = 10;
     private static final int MAX_CARTESIAN_SPEED = 5;
@@ -36,5 +44,5 @@ public class FullBouncableFactory implements BouncableFactory{
                 size,
                 FullRenderer.getInstance()
         );
-    }
+    }*/
 }

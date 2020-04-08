@@ -1,4 +1,6 @@
+import javax.swing.*;
+
 public interface BouncableFactory {
-    Bouncable createCircle(Displayer d);
-    Bouncable createRectangle(Displayer d);
+    Bouncable createCircle(Renderable d);
+    Bouncable createRectangle(Renderable d);
 }
