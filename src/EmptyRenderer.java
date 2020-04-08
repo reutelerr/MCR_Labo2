@@ -9,9 +9,13 @@ public class EmptyRenderer implements  Renderable{
     public void Display(Graphics2D g, Bouncable b) {
         if(b instanceof Circle)
         {
-            g.setColor(Color.BLUE);
-            g.draw(b.getShape());
+            g.setColor(Color.GREEN);
         }
+        else if(b instanceof Rectangle)
+        {
+            g.setColor(Color.RED);
+        }
+        g.draw(b.getShape());
     }
 
     public static EmptyRenderer getInstance()

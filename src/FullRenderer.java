@@ -11,8 +11,12 @@ public class FullRenderer implements  Renderable{
         if(b instanceof Circle)
         {
             g.setColor(Color.BLUE);
-            g.fill(b.getShape());
         }
+        else if(b instanceof Rectangle)
+        {
+            g.setColor(Color.ORANGE);
+        }
+        g.fill(b.getShape());
     }
 
     public static FullRenderer getInstance()

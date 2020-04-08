@@ -17,8 +17,10 @@ public class BounceApp {
         //Formes de départ : 5 de chaque type (TEMPORAIRE : que des cercles)
         for(int i=0; i<5; ++i)
         {
-            bouncers.add(emptyBouncableFactory.createCircle(frame));
-            bouncers.add(fullBouncableFactory.createCircle(frame));
+            bouncers.add(emptyBouncableFactory.createCircle());
+            bouncers.add(fullBouncableFactory.createCircle());
+            bouncers.add(emptyBouncableFactory.createRectangle());
+            bouncers.add(fullBouncableFactory.createRectangle());
         }
     }
 
