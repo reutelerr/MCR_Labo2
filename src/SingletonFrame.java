@@ -1,7 +1,6 @@
 import javax.swing.*;
 import java.awt.*;
-import java.awt.event.WindowAdapter;
-import java.awt.event.WindowEvent;
+import java.awt.event.*;
 import java.util.ArrayList;
 import java.util.Timer;
 import java.util.TimerTask;
@@ -69,5 +68,10 @@ public class SingletonFrame implements Displayer
     @Override
     public void setTitle(String s) {
         frame.setTitle(s);
+    }
+
+    @Override
+    public void addKeyListener(KeyAdapter ka) {
+        frame.addKeyListener(ka);
     }
 }

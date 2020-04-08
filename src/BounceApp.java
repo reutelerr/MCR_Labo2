@@ -1,4 +1,6 @@
 import java.awt.*;
+import java.awt.event.KeyAdapter;
+import java.awt.event.KeyEvent;
 import java.util.*;
 
 public class BounceApp {
@@ -22,6 +24,31 @@ public class BounceApp {
             bouncers.add(emptyBouncableFactory.createRectangle());
             bouncers.add(fullBouncableFactory.createRectangle());
         }
+
+
+        frame.addKeyListener(new KeyAdapter() { //KeyAdapter et non KeyListener pour ne pas avoir à impl toutes les methodes
+            @Override
+            public void keyPressed(KeyEvent e) {
+                switch(e.getKeyCode()){
+                    case KeyEvent.VK_E :{
+                        erase();
+                        break;
+                    }
+                    case KeyEvent.VK_B:{
+                        generateEmpty(10);
+                        break;
+                    }
+                    case KeyEvent.VK_F:{
+                       generateFull(10);
+                        break;
+                    }
+                    case KeyEvent.VK_Q:{
+                        System.exit(0);
+                        break;
+                    }
+                }
+            }
+        });
     }
 
     public void loop()
@@ -44,4 +71,25 @@ public class BounceApp {
     public static void main(String[] args) {
         new BounceApp().loop();
     }
+
+    private void erase(){
+        bouncers = new LinkedList<Bouncable>();
+    }
+
+    private void generateEmpty(int n){
+        for(int i=0; i<n; ++i)
+        {
+            bouncers.add(emptyBouncableFactory.createCircle());
+            bouncers.add(emptyBouncableFactory.createRectangle());
+        }
+    }
+
+    private void generateFull(int n){
+        for(int i=0; i<n; ++i)
+        {
+            bouncers.add(fullBouncableFactory.createCircle());
+            bouncers.add(fullBouncableFactory.createRectangle());
+        }
+    }
+
 }
