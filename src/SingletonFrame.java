@@ -1,7 +1,6 @@
 import javax.swing.*;
 import java.awt.*;
-import java.awt.event.WindowAdapter;
-import java.awt.event.WindowEvent;
+import java.awt.event.*;
 import java.util.ArrayList;
 import java.util.Timer;
 import java.util.TimerTask;
@@ -29,6 +28,18 @@ public class SingletonFrame implements Displayer
         public void windowClosing(WindowEvent e) {
             System.exit(0);
         }});
+
+        frame.addKeyListener(new KeyAdapter() { //KeyAdapter et non KeyListener pour ne pas avoir à impl toutes les methodes
+            @Override
+            public void keyPressed(KeyEvent e) {
+                switch(e.getKeyCode()){
+                    case KeyEvent.VK_E :{
+                       System.out.println("Salut");
+                       break;
+                    }
+                }
+            }
+        });
     }
 
     public static SingletonFrame getInstance()
@@ -69,5 +80,10 @@ public class SingletonFrame implements Displayer
     @Override
     public void setTitle(String s) {
         frame.setTitle(s);
+    }
+
+    @Override
+    public void addKeyListener(KeyAdapter ka) {
+        frame.addKeyListener(ka);
     }
 }
