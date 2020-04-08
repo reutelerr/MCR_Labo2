@@ -1,4 +1,6 @@
 import java.awt.*;
+import java.awt.event.KeyAdapter;
+import java.awt.event.KeyEvent;
 import java.util.*;
 
 public class BounceApp {
@@ -22,6 +24,19 @@ public class BounceApp {
             bouncers.add(emptyBouncableFactory.createRectangle());
             bouncers.add(fullBouncableFactory.createRectangle());
         }
+
+
+        frame.addKeyListener(new KeyAdapter() { //KeyAdapter et non KeyListener pour ne pas avoir à impl toutes les methodes
+            @Override
+            public void keyPressed(KeyEvent e) {
+                switch(e.getKeyCode()){
+                    case KeyEvent.VK_E :{
+                        erase();
+                        break;
+                    }
+                }
+            }
+        });
     }
 
     public void loop()
@@ -43,6 +58,10 @@ public class BounceApp {
 
     public static void main(String[] args) {
         new BounceApp().loop();
+    }
+
+    private void erase(){
+        bouncers = new LinkedList<Bouncable>();
     }
 
 }

@@ -28,18 +28,6 @@ public class SingletonFrame implements Displayer
         public void windowClosing(WindowEvent e) {
             System.exit(0);
         }});
-
-        frame.addKeyListener(new KeyAdapter() { //KeyAdapter et non KeyListener pour ne pas avoir à impl toutes les methodes
-            @Override
-            public void keyPressed(KeyEvent e) {
-                switch(e.getKeyCode()){
-                    case KeyEvent.VK_E :{
-                       System.out.println("Salut");
-                       break;
-                    }
-                }
-            }
-        });
     }
 
     public static SingletonFrame getInstance()
