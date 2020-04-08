@@ -1,3 +1,13 @@
+/*
+ * Laboratoire : 02
+ * Fichier     : Circle.java
+ * Auteur(s)   : Delhomme Claire, Reuteler Robin
+ * Date        : 09.04.2020
+ *
+ * But         : Classe représentant un cercle
+ */
+
+
 package Shapes;
 
 import Util.Vector2D;

@@ -1,8 +1,17 @@
+/*
+ * Laboratoire : 02
+ * Fichier     : EmptyRenderer.java
+ * Auteur(s)   : Delhomme Claire, Reuteler Robin
+ * Date        : 09.04.2020
+ *
+ * But         : Render des formes creuses
+ */
+
 package Display.Render;
 
 import Shapes.Bouncable;
 import Shapes.Circle;
-import Shapes.Rectangle;
+import Shapes.Square;
 
 import java.awt.*;
 
@@ -17,7 +26,7 @@ public class EmptyRenderer implements  Renderable{
         {
             g.setColor(Color.GREEN);
         }
-        else if(b instanceof Rectangle)
+        else if(b instanceof Square)
         {
             g.setColor(Color.RED);
         }

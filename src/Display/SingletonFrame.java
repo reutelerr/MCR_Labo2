@@ -1,3 +1,12 @@
+/*
+ * Laboratoire : 02
+ * Fichier     : SingletonFrame.java
+ * Auteur(s)   : Delhomme Claire, Reuteler Robin
+ * Date        : 09.04.2020
+ *
+ * But         : Affichage unique de notre application
+ */
+
 package Display;
 
 import javax.swing.*;

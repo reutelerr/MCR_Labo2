@@ -1,8 +1,17 @@
+/*
+ * Laboratoire : 02
+ * Fichier     : FullRenderer.java
+ * Auteur(s)   : Delhomme Claire, Reuteler Robin
+ * Date        : 09.04.2020
+ *
+ * But         : Render des formes pleines
+ */
+
 package Display.Render;
 
 import Shapes.Bouncable;
 import Shapes.Circle;
-import Shapes.Rectangle;
+import Shapes.Square;
 
 import java.awt.*;
 
@@ -18,7 +27,7 @@ public class FullRenderer implements  Renderable{
         {
             g.setColor(Color.BLUE);
         }
-        else if(b instanceof Rectangle)
+        else if(b instanceof Square)
         {
             g.setColor(Color.ORANGE);
         }

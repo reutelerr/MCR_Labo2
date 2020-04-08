@@ -1,3 +1,12 @@
+/*
+ * Laboratoire : 02
+ * Fichier     : Shape2D.java
+ * Auteur(s)   : Delhomme Claire, Reuteler Robin
+ * Date        : 09.04.2020
+ *
+ * But         : Classe abstraite représentant une forme ayant une position et une vitesse en 2D
+ */
+
 package Shapes;
 
 import java.awt.*;

@@ -1,3 +1,13 @@
+/*
+ * Laboratoire : 02
+ * Fichier     : BounceApp.java
+ * Auteur(s)   : Delhomme Claire, Reuteler Robin
+ * Date        : 09.04.2020
+ *
+ * But         : Application qui permet d'instancier des cercles et des carrés et de les déplacer dans un
+ *               espace d'affichage graphique commun.
+ */
+
 import Display.SingletonFrame;
 import Factories.EmptyBouncableFactory;
 import Factories.FullBouncableFactory;

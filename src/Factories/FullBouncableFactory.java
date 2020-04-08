@@ -1,3 +1,12 @@
+/*
+ * Laboratoire : 02
+ * Fichier     : FullBouncableFactory.java
+ * Auteur(s)   : Delhomme Claire, Reuteler Robin
+ * Date        : 09.04.2020
+ *
+ * But         : Factory concrète pour les formes pleines
+ */
+
 package Factories;
 
 import Display.Render.FullRenderer;

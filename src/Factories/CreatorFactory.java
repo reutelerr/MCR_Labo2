@@ -1,9 +1,18 @@
+/*
+ * Laboratoire : 02
+ * Fichier     : CreatorFactory.java
+ * Auteur(s)   : Delhomme Claire, Reuteler Robin
+ * Date        : 09.04.2020
+ *
+ * But         : Factory abstraite
+ */
+
 package Factories;
 
 import Display.Render.Renderable;
 import Shapes.Bouncable;
 import Shapes.Circle;
-import Shapes.Rectangle;
+import Shapes.Square;
 import Util.Vector2D;
 import Display.*;
 
@@ -33,7 +42,7 @@ abstract public class CreatorFactory implements BouncableFactory {
     public Bouncable createRectangle(Renderable r) {
         int[] attributes = generateAttributes();
 
-        return new Rectangle(
+        return new Square(
                 new Vector2D(attributes[0], attributes[1]),
                 new Vector2D(attributes[2], attributes[3]),
                 attributes[4],

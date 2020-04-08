@@ -1,3 +1,12 @@
+/*
+ * Laboratoire : 02
+ * Fichier     : Displayer.java
+ * Auteur(s)   : Delhomme Claire, Reuteler Robin
+ * Date        : 09.04.2020
+ *
+ * But         : Interface à implémenter par le displayer
+ */
+
 package Display;
 
 import java.awt.*;
