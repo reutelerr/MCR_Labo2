@@ -44,12 +44,12 @@ public class BounceApp {
                         break;
                     }
                     case KeyEvent.VK_B:{
-                        myFactory = new EmptyBouncableFactory();
+                        myFactory = EmptyBouncableFactory.getInstance();
                         generateShapes(GENERATED_SHAPES);
                         break;
                     }
                     case KeyEvent.VK_F:{
-                        myFactory = new FullBouncableFactory();
+                        myFactory = FullBouncableFactory.getInstance();
                         generateShapes(GENERATED_SHAPES);
                         break;
                     }

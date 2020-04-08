@@ -26,4 +26,22 @@ public class FullBouncableFactory extends CreatorFactory{
         return super.createSquares(renderer);
     }
 
+    private FullBouncableFactory(){
+
+    }
+
+    private static class Instance
+    {
+        static FullBouncableFactory instance = new FullBouncableFactory();
+    }
+
+    public static FullBouncableFactory getInstance()
+    {
+        if(Instance.instance == null)
+        {
+            Instance.instance = new FullBouncableFactory();
+        }
+        return Instance.instance;
+    }
+
 }

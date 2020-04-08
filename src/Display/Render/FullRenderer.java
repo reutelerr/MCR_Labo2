@@ -36,6 +36,14 @@ public class FullRenderer implements  Renderable{
 
     public static FullRenderer getInstance()
     {
-        return FullRenderer.Instance.instance;
+        if(Instance.instance == null)
+        {
+            Instance.instance = new FullRenderer();
+        }
+        return Instance.instance;
+    }
+
+    private FullRenderer(){
+
     }
 }

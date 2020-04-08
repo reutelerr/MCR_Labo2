@@ -35,6 +35,14 @@ public class EmptyRenderer implements  Renderable{
 
     public static EmptyRenderer getInstance()
     {
+        if(Instance.instance == null)
+        {
+            Instance.instance = new EmptyRenderer();
+        }
         return Instance.instance;
+    }
+
+    private EmptyRenderer(){
+
     }
 }
