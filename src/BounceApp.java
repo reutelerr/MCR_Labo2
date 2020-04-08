@@ -16,19 +16,25 @@ import Shapes.Bouncable;
 
 import java.awt.event.KeyAdapter;
 import java.awt.event.KeyEvent;
-import java.util.*;
+import java.util.LinkedList;
+import java.util.Timer;
+import java.util.TimerTask;
 
 public class BounceApp {
 
     private LinkedList<Bouncable> bouncers;
     private BouncableFactory myFactory;
-    private SingletonFrame frame = SingletonFrame.getInstance();
+    private final SingletonFrame frame;
     private static final int GENERATED_SHAPES = 10;
 
+    /**
+     * Constructor initializes frame
+     */
     BounceApp()
     {
         bouncers = new LinkedList<Bouncable>();
 
+        frame = SingletonFrame.getInstance();
         frame.addKeyListener(new KeyAdapter() { //KeyAdapter et non KeyListener pour ne pas avoir à impl toutes les methodes
             @Override
             public void keyPressed(KeyEvent e) {
@@ -56,6 +62,9 @@ public class BounceApp {
         });
     }
 
+    /**
+     * Execution of program : periodical shapes movement and rendering
+     */
     public void loop()
     {
         Timer clock = new Timer();
@@ -73,20 +82,31 @@ public class BounceApp {
         },0, 10);
     }
 
+    /**
+     * Main
+     *
+     * @param args
+     */
     public static void main(String[] args) {
         new BounceApp().loop();
     }
 
+    /**
+     * Erases all bouncers
+     */
     private void erase(){
         bouncers = new LinkedList<Bouncable>();
     }
 
-  private void generateShapes(int n){
-      for(int i=0; i<n; ++i)
-      {
-          bouncers.add(myFactory.createCircle());
-          bouncers.add(myFactory.createRectangle());
-      }
-  }
+    /**
+     * Generates n shapes of each concrete shape kind
+     * @param n
+     */
+    private void generateShapes(int n) {
+        for (int i = 0; i < n; ++i) {
+            bouncers.add(myFactory.createCircle());
+            bouncers.add(myFactory.createSquare());
+        }
+    }
 
 }

@@ -11,6 +11,15 @@ package Factories;
 import Shapes.Bouncable;
 
 public interface BouncableFactory {
+    /**
+     *
+     * @return bouncable circle
+     */
     Bouncable createCircle();
-    Bouncable createRectangle();
+
+    /**
+     *
+     * @return bouncable square
+     */
+    Bouncable createSquare();
 }

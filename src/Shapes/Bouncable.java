@@ -10,8 +10,9 @@
 
 package Shapes;
 
+import Display.Render.Renderable;
+
 import java.awt.*;
-import Display.Render.*;
 
 public interface Bouncable
 {

@@ -9,12 +9,13 @@
 
 package Factories;
 
+import Display.Displayer;
 import Display.Render.Renderable;
+import Display.SingletonFrame;
 import Shapes.Bouncable;
 import Shapes.Circle;
 import Shapes.Square;
 import Util.Vector2D;
-import Display.*;
 
 import java.util.Random;
 
@@ -26,10 +27,16 @@ abstract public class CreatorFactory implements BouncableFactory {
     private static final Displayer d = SingletonFrame.getInstance();
 
     //Méthodes à redéfinir dans les classes concrètes
-    abstract public Bouncable createRectangle();
+    abstract public Bouncable createSquare();
     abstract public Bouncable createCircle();
 
 
+    /**
+     * Concrete factories call this method to create circles
+     *
+     * @param r Renderer
+     * @return  bouncable circle
+     */
     Bouncable createCircle(Renderable r) {
         int[] attributes = generateAttributes();
 
@@ -42,7 +49,13 @@ abstract public class CreatorFactory implements BouncableFactory {
     }
 
 
-    Bouncable createRectangle(Renderable r) {
+    /**
+     * Concrete factories call this method to create squares
+     *
+     * @param r Renderer
+     * @return  bouncable square
+     */
+    Bouncable createSquares(Renderable r) {
         int[] attributes = generateAttributes();
 
         return new Square(
@@ -54,7 +67,11 @@ abstract public class CreatorFactory implements BouncableFactory {
 
     }
 
-
+    /**
+     * Generates random attributes for shape creation
+     *
+     * @return attributes as an array
+     */
     private int[] generateAttributes(){
         int size = rand.nextInt(MAXSIZE - MINSIZE) + MINSIZE;
         int x = rand.nextInt(d.getWidth() - 2 * size) + size;

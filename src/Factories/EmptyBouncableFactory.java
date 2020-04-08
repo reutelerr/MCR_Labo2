@@ -22,7 +22,8 @@ public class EmptyBouncableFactory extends CreatorFactory{
     }
 
     @Override
-    public Bouncable createRectangle() {
-        return super.createRectangle(renderer);
+    public Bouncable createSquare() {
+        return super.createSquares(renderer);
     }
+
 }

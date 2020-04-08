@@ -9,10 +9,12 @@
 
 package Shapes;
 
-import java.awt.*;
-import Display.Render.*;
-import Display.*;
+import Display.Displayer;
+import Display.Render.Renderable;
+import Display.SingletonFrame;
 import Util.Vector2D;
+
+import java.awt.*;
 
 public abstract class Shape2D implements Bouncable {
 

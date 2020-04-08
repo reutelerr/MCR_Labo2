@@ -9,8 +9,8 @@
 
 package Shapes;
 
+import Display.Render.Renderable;
 import Util.Vector2D;
-import Display.Render.*;
 
 import java.awt.*;
 import java.awt.geom.Rectangle2D;
