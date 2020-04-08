@@ -14,6 +14,12 @@ public class FullRenderer implements  Renderable{
             //g.fill(b.getShape());
             g.fillOval(((Circle) b).pos.getX(), ((Circle) b).pos.getY(), ((Circle) b).size, ((Circle) b).size);
         }
+        else if(b instanceof Rectangle)
+        {
+            g.setColor(Color.ORANGE);
+            //g.draw(b.getShape());
+            g.fillRect(((Rectangle) b).pos.getX(), ((Rectangle) b).pos.getY(), ((Rectangle) b).size, ((Rectangle) b).size);
+        }
     }
 
     public static FullRenderer getInstance()
