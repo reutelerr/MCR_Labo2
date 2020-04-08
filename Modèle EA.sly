@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="iso-8859-15" standalone="no"?>
 <classDiagram>
   <diagramElements defaultViewEntities="ALL" defaultViewEnum="true" defaultViewMethods="TYPE_AND_NAME" defaultVisibleTypes="true" informations="" name="">
-    <entity entityType="CLASS" id="14020" isAbstract="false" name="Shape2D" visibility="PUBLIC"/>
-    <entity entityType="CLASS" id="13909" isAbstract="false" name="EmptyBouncableFactory" visibility="PUBLIC"/>
-    <entity entityType="CLASS" id="13908" isAbstract="false" name="FullBouncableFactory" visibility="PUBLIC"/>
-    <entity entityType="CLASS" id="13853" isAbstract="true" name="BouncableFactory" visibility="PUBLIC">
+    <entity entityType="CLASS" id="14020" isAbstract="false" name="Shapes.Shape2D" visibility="PUBLIC"/>
+    <entity entityType="CLASS" id="13909" isAbstract="false" name="Factories.EmptyBouncableFactory" visibility="PUBLIC"/>
+    <entity entityType="CLASS" id="13908" isAbstract="false" name="Factories.FullBouncableFactory" visibility="PUBLIC"/>
+    <entity entityType="CLASS" id="13853" isAbstract="true" name="Factories.BouncableFactory" visibility="PUBLIC">
       <method isAbstract="true" isStatic="false" name="getCircles" returnType="LinkedList&lt;Circles&gt;" view="DEFAULT" visibility="PUBLIC">
         <variable const="false" name="n" type="int"/>
       </method>
@@ -12,16 +12,16 @@
         <variable const="false" name="n" type="int"/>
       </method>
     </entity>
-    <entity entityType="CLASS" id="13851" isAbstract="false" name="Renderable" visibility="PUBLIC"/>
+    <entity entityType="CLASS" id="13851" isAbstract="false" name="Display.Render.Renderable" visibility="PUBLIC"/>
     <entity entityType="CLASS" id="13850" isAbstract="false" name="Square" visibility="PUBLIC">
       <attribute const="false" defaultValue="" isStatic="false" name="full" type="boolean" visibility="PRIVATE"/>
     </entity>
-    <entity entityType="CLASS" id="13849" isAbstract="true" name="Bouncable" visibility="PUBLIC"/>
-    <entity entityType="CLASS" id="13848" isAbstract="false" name="Circle" visibility="PUBLIC">
+    <entity entityType="CLASS" id="13849" isAbstract="true" name="Shapes.Bouncable" visibility="PUBLIC"/>
+    <entity entityType="CLASS" id="13848" isAbstract="false" name="Shapes.Circle" visibility="PUBLIC">
       <attribute const="false" defaultValue="" isStatic="false" name="full" type="boolean" visibility="PRIVATE"/>
     </entity>
-    <entity entityType="CLASS" id="13847" isAbstract="false" name="SingletonFrame" visibility="PUBLIC"/>
-    <entity entityType="INTERFACE" id="13846" isAbstract="true" name="Displayer" visibility="PUBLIC"/>
+    <entity entityType="CLASS" id="13847" isAbstract="false" name="Display.SingletonFrame" visibility="PUBLIC"/>
+    <entity entityType="INTERFACE" id="13846" isAbstract="true" name="Display.Displayer" visibility="PUBLIC"/>
   </diagramElements>
   <umlView grid="10" name="Main view" open="true">
     <componentView color="-2079" componentID="13846" displayAttributes="true" displayDefault="true" displayMethods="true">

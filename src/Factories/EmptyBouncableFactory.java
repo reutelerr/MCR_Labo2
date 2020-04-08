@@ -1,3 +1,9 @@
+package Factories;
+
+import Display.Render.EmptyRenderer;
+import Display.Render.Renderable;
+import Shapes.Bouncable;
+
 public class EmptyBouncableFactory extends CreatorFactory{
     private static final Renderable renderer = EmptyRenderer.getInstance();
 

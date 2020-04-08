@@ -1,3 +1,9 @@
+package Display.Render;
+
+import Shapes.Bouncable;
+import Shapes.Circle;
+import Shapes.Rectangle;
+
 import java.awt.*;
 
 public class FullRenderer implements  Renderable{

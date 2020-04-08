@@ -1,3 +1,5 @@
+package Util;
+
 public class Vector2D {
     private int[] coords;
 
@@ -6,7 +8,7 @@ public class Vector2D {
      * @param x
      * @param y
      */
-    Vector2D(int x, int y)
+    public Vector2D(int x, int y)
     {
         coords = new int[]{x, y};
     }

@@ -1,4 +1,12 @@
-import javax.swing.*;
+package Factories;
+
+import Display.Render.Renderable;
+import Shapes.Bouncable;
+import Shapes.Circle;
+import Shapes.Rectangle;
+import Util.Vector2D;
+import Display.*;
+
 import java.util.Random;
 
 abstract public class CreatorFactory implements BouncableFactory {

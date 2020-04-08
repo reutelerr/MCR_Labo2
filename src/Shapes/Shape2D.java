@@ -1,14 +1,19 @@
+package Shapes;
+
 import java.awt.*;
+import Display.Render.*;
+import Display.*;
+import Util.Vector2D;
 
 public abstract class Shape2D implements Bouncable {
 
-    protected Vector2D pos;
-    protected Vector2D speed;
-    protected int size;
+    private Vector2D pos;
+    private Vector2D speed;
+    private int size;
 
-    protected Displayer d;
-    protected Renderable r;
-    protected Color c;
+    private Displayer d;
+    private Renderable r;
+    private Color c;
 
 
 

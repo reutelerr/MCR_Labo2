@@ -1,3 +1,8 @@
+import Display.SingletonFrame;
+import Factories.EmptyBouncableFactory;
+import Factories.FullBouncableFactory;
+import Shapes.Bouncable;
+
 import java.awt.event.KeyAdapter;
 import java.awt.event.KeyEvent;
 import java.util.*;
