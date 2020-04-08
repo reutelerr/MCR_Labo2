@@ -74,10 +74,18 @@ abstract public class CreatorFactory implements BouncableFactory {
      */
     private int[] generateAttributes(){
         int size = rand.nextInt(MAXSIZE - MINSIZE) + MINSIZE;
-        int x = rand.nextInt(d.getWidth() - 2 * size) + size;
-        int y = rand.nextInt(d.getHeight() - 2 * size) + size;
-        int xSpeed = rand.nextInt(MAX_CARTESIAN_SPEED - 1) + 1;
-        int ySpeed = rand.nextInt(MAX_CARTESIAN_SPEED - 1) + 1;
+        int x = rand.nextInt(d.getWidth() - size) + size;
+        int y = rand.nextInt(d.getHeight() - size) + size;
+        int xSpeed = rand.nextInt(MAX_CARTESIAN_SPEED) + 1;
+        int ySpeed = rand.nextInt(MAX_CARTESIAN_SPEED) + 1;
+
+        if (rand.nextInt(2) == 0) {
+            xSpeed = -xSpeed;
+        }
+        if (rand.nextInt(2) == 0) {
+            ySpeed = -ySpeed;
+        }
+
         return new int[] {x, y , xSpeed, ySpeed, size};
     }
 }
