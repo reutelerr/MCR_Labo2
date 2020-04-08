@@ -15,9 +15,31 @@ import Display.Render.*;
 
 public interface Bouncable
 {
+    /**
+     *  Handles shape display by calling renderer method
+     */
     void draw();
+
+    /**
+     *  Handles shape movement
+     */
     void move();
+
+    /**
+     *
+     * @return renderer
+     */
     Renderable getRenderer();
+
+    /**
+     *
+     * @return color
+     */
     Color getColor();
+
+    /**
+     *
+     * @return shape
+     */
     Shape getShape();
 }

@@ -18,6 +18,14 @@ import java.awt.geom.Rectangle2D;
 public class Square extends Shape2D
 {
 
+    /**
+     * Constructor
+     *
+     * @param initPos   position in frame (left-hand corner)
+     * @param initSpeed speed
+     * @param size      length of sides
+     * @param renderer  renderer
+     */
     public Square(Vector2D initPos, Vector2D initSpeed, int size, Renderable renderer)
     {
         super(initPos, initSpeed, size, renderer);

@@ -18,6 +18,14 @@ import java.awt.geom.Ellipse2D;
 
 public class Circle extends Shape2D
 {
+    /**
+     * Constructor
+     *
+     * @param initPos   position in frame (left-hand corner)
+     * @param initSpeed speed
+     * @param size      radius
+     * @param renderer  renderer
+     */
     public Circle(Vector2D initPos, Vector2D initSpeed, int size, Renderable renderer)
     {
         super(initPos, initSpeed, size, renderer);

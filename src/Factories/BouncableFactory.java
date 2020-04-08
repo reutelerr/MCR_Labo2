@@ -7,6 +7,8 @@
  * But         : Interface à implémenter par les factory
  */
 
+//TODO suppr?
+
 package Factories;
 
 import Display.Render.Renderable;

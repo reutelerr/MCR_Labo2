@@ -4,7 +4,7 @@
  * Auteur(s)   : Delhomme Claire, Reuteler Robin
  * Date        : 09.04.2020
  *
- * But         : Classe abstraite représentant une forme ayant une position et une vitesse en 2D
+ * But         : Classe abstraite représentant une forme ayant une position, une vitesse et un affichage en 2D
  */
 
 package Shapes;
@@ -25,7 +25,14 @@ public abstract class Shape2D implements Bouncable {
     private Color c;
 
 
-
+    /**
+     * Constructor
+     *
+     * @param initPos   position in frame (left-hand corner)
+     * @param initSpeed speed
+     * @param size      length of side
+     * @param r         renderer
+     */
     Shape2D(Vector2D initPos, Vector2D initSpeed, int size, Renderable r)
     {
         pos = initPos;
@@ -47,6 +54,7 @@ public abstract class Shape2D implements Bouncable {
         return c;
     }
 
+    @Override
     public void move()
     {
         pos.addVector(speed);
@@ -70,28 +78,46 @@ public abstract class Shape2D implements Bouncable {
         }
     }
 
+    @Override
+    public Renderable getRenderer()
+    {
+        return r;
+    }
+
+    /**
+     *
+     * @return lowest position on horizontal axis
+     */
     int lowestX()
     {
         return pos.getX();
     }
 
+    /**
+     *
+     * @return highest position on horizontal axis
+     */
     int highestX()
     {
         return pos.getX()+ size;
     }
 
+    /**
+     *
+     * @return lowest position on vertical axis
+     */
     int lowestY()
     {
         return pos.getY();
     }
 
+    /**
+     *
+     * @return highest position on vertical axis
+     */
     int highestY()
     {
         return pos.getY()+ size;
     }
 
-    public Renderable getRenderer()
-    {
-        return r;
-    }
 }
