@@ -1,14 +1,14 @@
 public class Vector2D {
-    private int[] coords;
+    private double[] coords;
 
     /**
      * @brief Constructor : builds a new geometrical 2-dimensional vector
      * @param x
      * @param y
      */
-    Vector2D(int x, int y)
+    Vector2D(double x, double y)
     {
-        coords = new int[]{x, y};
+        coords = new double[]{x, y};
     }
 
     public void addVector(Vector2D v)
@@ -27,12 +27,12 @@ public class Vector2D {
         this.coords[1] = -this.coords[1];
     }
 
-    public int getX()
+    public double getX()
     {
         return coords[0];
     }
 
-    public int getY()
+    public double getY()
     {
         return coords[1];
     }

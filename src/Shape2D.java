@@ -63,22 +63,22 @@ public abstract class Shape2D implements Bouncable {
         }
     }
 
-    int lowestX()
+    double lowestX()
     {
         return pos.getX();
     }
 
-    int highestX()
+    double highestX()
     {
         return pos.getX()+ size;
     }
 
-    int lowestY()
+    double lowestY()
     {
         return pos.getY();
     }
 
-    int highestY()
+    double highestY()
     {
         return pos.getY()+ size;
     }
