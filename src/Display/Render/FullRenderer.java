@@ -17,10 +17,6 @@ import java.awt.*;
 
 public class FullRenderer implements  Renderable{
 
-    private static class Instance {
-        static FullRenderer instance = new FullRenderer();
-    }
-
     @Override
     public void Display(Graphics2D g, Bouncable b) {
         if(b instanceof Circle)
@@ -34,6 +30,18 @@ public class FullRenderer implements  Renderable{
         g.fill(b.getShape());
     }
 
+    //Singleton
+    private FullRenderer(){
+
+    }
+    private static class Instance {
+        static FullRenderer instance = new FullRenderer();
+    }
+
+    /**
+     *
+     * @return unique instance of this class
+     */
     public static FullRenderer getInstance()
     {
         if(Instance.instance == null)
@@ -43,7 +51,5 @@ public class FullRenderer implements  Renderable{
         return Instance.instance;
     }
 
-    private FullRenderer(){
 
-    }
 }

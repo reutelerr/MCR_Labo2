@@ -12,6 +12,7 @@ package Display;
 import java.awt.*;
 import java.awt.event.KeyAdapter;
 
+//TODO comments
 public interface Displayer {
     int getWidth();
     int getHeight();

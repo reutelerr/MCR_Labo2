@@ -14,5 +14,11 @@ import Shapes.Bouncable;
 import java.awt.*;
 
 public interface Renderable {
+    /**
+     * Handles display of bouncer
+     *
+     * @param g graphics handler
+     * @param b bouncer to display
+     */
     void Display(Graphics2D g, Bouncable b);
 }

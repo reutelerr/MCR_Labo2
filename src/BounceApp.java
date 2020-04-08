@@ -26,6 +26,8 @@ public class BounceApp {
     private BouncableFactory myFactory;
     private final SingletonFrame frame;
     private static final int GENERATED_SHAPES = 10;
+    private static final int REFRESH_PERIOD = 10;
+
 
     /**
      * Constructor initializes frame
@@ -71,7 +73,10 @@ public class BounceApp {
         clock.scheduleAtFixedRate(new TimerTask() {
             @Override
             public void run() {
-                frame.createImage(frame.getWidth(), frame.getHeight());
+                //Refresh blank page
+                frame.createImage();
+
+                //Move and draw bouncers
                 for(Bouncable b : bouncers)
                 {
                     b.move();
@@ -79,7 +84,8 @@ public class BounceApp {
                 }
                 frame.repaint();
             }
-        },0, 10);
+        },0, REFRESH_PERIOD);
+
     }
 
     /**

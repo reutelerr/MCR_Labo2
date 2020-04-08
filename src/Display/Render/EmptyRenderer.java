@@ -16,9 +16,7 @@ import Shapes.Square;
 import java.awt.*;
 
 public class EmptyRenderer implements  Renderable{
-    private static class Instance {
-        static EmptyRenderer instance = new EmptyRenderer();
-    }
+
 
     @Override
     public void Display(Graphics2D g, Bouncable b) {
@@ -33,6 +31,20 @@ public class EmptyRenderer implements  Renderable{
         g.draw(b.getShape());
     }
 
+
+    //Singleton
+    private EmptyRenderer(){
+
+    }
+
+    private static class Instance {
+        static EmptyRenderer instance = new EmptyRenderer();
+    }
+
+    /**
+     *
+     * @return unique instance of this class
+     */
     public static EmptyRenderer getInstance()
     {
         if(Instance.instance == null)
@@ -42,7 +54,4 @@ public class EmptyRenderer implements  Renderable{
         return Instance.instance;
     }
 
-    private EmptyRenderer(){
-
-    }
 }

@@ -19,7 +19,9 @@ public class SingletonFrame implements Displayer
 {
     private Image image;
     private JFrame frame;
+    private static final int SIDE = 500;
 
+    //Singleton
     private static class Instance
     {
         static SingletonFrame instance = new SingletonFrame();
@@ -28,7 +30,7 @@ public class SingletonFrame implements Displayer
     private SingletonFrame()
     {
         frame = new JFrame("Bouncers");
-        frame.setSize(500, 500);
+        frame.setSize(SIDE, SIDE);
         frame.setVisible(true);
         image = frame.createImage(getWidth(), getHeight());
 
@@ -48,9 +50,11 @@ public class SingletonFrame implements Displayer
         return Instance.instance;
     }
 
-    public Image createImage(int width, int height) {
-        this.image = frame.createImage(width, height);
-        return image;
+    /**
+     * Refreshes blank image
+     */
+    public void createImage() {
+        this.image = frame.createImage(frame.getWidth(), frame.getHeight());
     }
 
     @Override

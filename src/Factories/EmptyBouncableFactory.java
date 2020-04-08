@@ -26,6 +26,8 @@ public class EmptyBouncableFactory extends CreatorFactory{
         return super.createSquares(renderer);
     }
 
+
+    //Singleton
     private EmptyBouncableFactory(){
 
     }
@@ -35,6 +37,10 @@ public class EmptyBouncableFactory extends CreatorFactory{
         static EmptyBouncableFactory instance = new EmptyBouncableFactory();
     }
 
+    /**
+     *
+     * @return unique instance of this class
+     */
     public static EmptyBouncableFactory getInstance()
     {
         if(Instance.instance == null)
