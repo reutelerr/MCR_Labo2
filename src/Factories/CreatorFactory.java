@@ -25,9 +25,12 @@ abstract public class CreatorFactory implements BouncableFactory {
     private static final int MAX_CARTESIAN_SPEED = 3;
     private static final Displayer d = SingletonFrame.getInstance();
 
+    //Méthodes à redéfinir dans les classes concrètes
+    abstract public Bouncable createRectangle();
+    abstract public Bouncable createCircle();
 
-    @Override
-    public Bouncable createCircle(Renderable r) {
+
+    Bouncable createCircle(Renderable r) {
         int[] attributes = generateAttributes();
 
         return new Circle(
@@ -38,8 +41,8 @@ abstract public class CreatorFactory implements BouncableFactory {
         );
     }
 
-    @Override
-    public Bouncable createRectangle(Renderable r) {
+
+    Bouncable createRectangle(Renderable r) {
         int[] attributes = generateAttributes();
 
         return new Square(
@@ -50,6 +53,7 @@ abstract public class CreatorFactory implements BouncableFactory {
         );
 
     }
+
 
     private int[] generateAttributes(){
         int size = rand.nextInt(MAXSIZE - MINSIZE) + MINSIZE;

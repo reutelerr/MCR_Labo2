@@ -16,9 +16,12 @@ import Shapes.Bouncable;
 public class EmptyBouncableFactory extends CreatorFactory{
     private static final Renderable renderer = EmptyRenderer.getInstance();
 
+    @Override
     public Bouncable createCircle() {
         return super.createCircle(renderer);
     }
+
+    @Override
     public Bouncable createRectangle() {
         return super.createRectangle(renderer);
     }

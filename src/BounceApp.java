@@ -9,6 +9,7 @@
  */
 
 import Display.SingletonFrame;
+import Factories.BouncableFactory;
 import Factories.EmptyBouncableFactory;
 import Factories.FullBouncableFactory;
 import Shapes.Bouncable;
@@ -20,16 +21,13 @@ import java.util.*;
 public class BounceApp {
 
     private LinkedList<Bouncable> bouncers;
-    private EmptyBouncableFactory emptyBouncableFactory;
-    private FullBouncableFactory fullBouncableFactory;
+    private BouncableFactory myFactory;
     private SingletonFrame frame = SingletonFrame.getInstance();
     private static final int GENERATED_SHAPES = 10;
 
     BounceApp()
     {
         bouncers = new LinkedList<Bouncable>();
-        emptyBouncableFactory = new EmptyBouncableFactory();
-        fullBouncableFactory = new FullBouncableFactory();
 
         frame.addKeyListener(new KeyAdapter() { //KeyAdapter et non KeyListener pour ne pas avoir à impl toutes les methodes
             @Override
@@ -40,11 +38,13 @@ public class BounceApp {
                         break;
                     }
                     case KeyEvent.VK_B:{
-                        generateEmpty(GENERATED_SHAPES);
+                        myFactory = new EmptyBouncableFactory();
+                        generateShapes(GENERATED_SHAPES);
                         break;
                     }
                     case KeyEvent.VK_F:{
-                       generateFull(GENERATED_SHAPES);
+                        myFactory = new FullBouncableFactory();
+                        generateShapes(GENERATED_SHAPES);
                         break;
                     }
                     case KeyEvent.VK_Q:{
@@ -81,20 +81,12 @@ public class BounceApp {
         bouncers = new LinkedList<Bouncable>();
     }
 
-    private void generateEmpty(int n){
-        for(int i=0; i<n; ++i)
-        {
-            bouncers.add(emptyBouncableFactory.createCircle());
-            bouncers.add(emptyBouncableFactory.createRectangle());
-        }
-    }
-
-    private void generateFull(int n){
-        for(int i=0; i<n; ++i)
-        {
-            bouncers.add(fullBouncableFactory.createCircle());
-            bouncers.add(fullBouncableFactory.createRectangle());
-        }
-    }
+  private void generateShapes(int n){
+      for(int i=0; i<n; ++i)
+      {
+          bouncers.add(myFactory.createCircle());
+          bouncers.add(myFactory.createRectangle());
+      }
+  }
 
 }
