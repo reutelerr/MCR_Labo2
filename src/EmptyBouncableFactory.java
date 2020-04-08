@@ -23,4 +23,20 @@ public class EmptyBouncableFactory implements BouncableFactory{
                 EmptyRenderer.getInstance()
                 );
     }
+
+    @Override
+    public Bouncable createRectangle(Displayer d) {
+        int size = rand.nextInt(MAXSIZE-MINSIZE) + MINSIZE;
+        int x = rand.nextInt(d.getWidth()-2*size) + size;
+        int y = rand.nextInt(d.getHeight()-2*size) + size;
+        int xSpeed = rand.nextInt(MAX_CARTESIAN_SPEED-1)+1;
+        int ySpeed = rand.nextInt(MAX_CARTESIAN_SPEED-1)+1;
+
+        return new Rectangle(
+                new Vector2D(x, y),
+                new Vector2D(xSpeed, ySpeed),
+                size,
+                EmptyRenderer.getInstance()
+        );
+    }
 }

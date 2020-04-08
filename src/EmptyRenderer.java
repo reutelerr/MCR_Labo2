@@ -10,7 +10,8 @@ public class EmptyRenderer implements  Renderable{
         if(b instanceof Circle)
         {
             g.setColor(Color.BLUE);
-            g.draw(b.getShape());
+            //g.draw(b.getShape());
+            g.drawOval(((Circle) b).pos.getX(), ((Circle) b).pos.getY(), ((Circle) b).size, ((Circle) b).size);
         }
     }
 

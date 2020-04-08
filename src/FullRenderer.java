@@ -11,7 +11,8 @@ public class FullRenderer implements  Renderable{
         if(b instanceof Circle)
         {
             g.setColor(Color.BLUE);
-            g.fill(b.getShape());
+            //g.fill(b.getShape());
+            g.fillOval(((Circle) b).pos.getX(), ((Circle) b).pos.getY(), ((Circle) b).size, ((Circle) b).size);
         }
     }
 

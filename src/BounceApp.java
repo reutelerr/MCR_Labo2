@@ -19,6 +19,8 @@ public class BounceApp {
         {
             bouncers.add(emptyBouncableFactory.createCircle(frame));
             bouncers.add(fullBouncableFactory.createCircle(frame));
+           // bouncers.add(emptyBouncableFactory.createRectangle(frame));
+           // bouncers.add(fullBouncableFactory.createRectangle(frame));
         }
     }
 

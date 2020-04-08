@@ -6,5 +6,5 @@ public interface Bouncable
     void move();
     Renderable getRenderer();
     Color getColor();
-    Shape getShape();
+    Shape2D getShape();
 }
