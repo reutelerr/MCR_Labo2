@@ -70,7 +70,7 @@ public abstract class Shape2D implements Bouncable {
 
     int highestX()
     {
-        return pos.getX()+2*size;
+        return pos.getX()+ size;
     }
 
     int lowestY()
@@ -80,7 +80,7 @@ public abstract class Shape2D implements Bouncable {
 
     int highestY()
     {
-        return pos.getY()+2*size;
+        return pos.getY()+ size;
     }
 
     public Renderable getRenderer()
