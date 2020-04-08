@@ -1,18 +1,17 @@
-import java.awt.*;
 import java.awt.event.KeyAdapter;
 import java.awt.event.KeyEvent;
 import java.util.*;
 
 public class BounceApp {
 
-    private LinkedList<Bouncable> bouncers;
+    private List<Bouncable> bouncers;
     private EmptyBouncableFactory emptyBouncableFactory;
     private FullBouncableFactory fullBouncableFactory;
     private SingletonFrame frame = SingletonFrame.getInstance();
 
     BounceApp()
     {
-        bouncers = new LinkedList<Bouncable>();
+        bouncers = new ArrayList<Bouncable>();
         emptyBouncableFactory = new EmptyBouncableFactory();
         fullBouncableFactory = new FullBouncableFactory();
 
@@ -58,7 +57,7 @@ public class BounceApp {
             @Override
             public void run() {
                 frame.createImage(frame.getWidth(), frame.getHeight());
-                for(Bouncable b : bouncers)
+                for(Bouncable b : new LinkedList<Bouncable>(bouncers))
                 {
                     b.move();
                     b.draw();
