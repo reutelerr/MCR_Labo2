@@ -34,6 +34,18 @@ public class BounceApp {
                         erase();
                         break;
                     }
+                    case KeyEvent.VK_B:{
+                        generateEmpty(10);
+                        break;
+                    }
+                    case KeyEvent.VK_F:{
+                       generateFull(10);
+                        break;
+                    }
+                    case KeyEvent.VK_Q:{
+                        System.exit(0);
+                        break;
+                    }
                 }
             }
         });
@@ -62,6 +74,22 @@ public class BounceApp {
 
     private void erase(){
         bouncers = new LinkedList<Bouncable>();
+    }
+
+    private void generateEmpty(int n){
+        for(int i=0; i<n; ++i)
+        {
+            bouncers.add(emptyBouncableFactory.createCircle());
+            bouncers.add(emptyBouncableFactory.createRectangle());
+        }
+    }
+
+    private void generateFull(int n){
+        for(int i=0; i<n; ++i)
+        {
+            bouncers.add(fullBouncableFactory.createCircle());
+            bouncers.add(fullBouncableFactory.createRectangle());
+        }
     }
 
 }
