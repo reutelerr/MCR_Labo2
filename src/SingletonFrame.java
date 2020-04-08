@@ -1,9 +1,6 @@
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.*;
-import java.util.ArrayList;
-import java.util.Timer;
-import java.util.TimerTask;
 
 public class SingletonFrame implements Displayer
 {
@@ -21,7 +18,6 @@ public class SingletonFrame implements Displayer
         frame.setSize(500, 500);
         frame.setVisible(true);
         image = frame.createImage(getWidth(), getHeight());
-
 
         frame.addWindowListener(new WindowAdapter() {
         @Override
@@ -57,7 +53,6 @@ public class SingletonFrame implements Displayer
     @Override
     public Graphics2D getGraphics() {
         return (Graphics2D)image.getGraphics();
-        //return (Graphics2D)getInstance().image.getGraphics();
     }
 
     @Override

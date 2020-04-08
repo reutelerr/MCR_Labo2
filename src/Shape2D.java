@@ -1,6 +1,4 @@
-import javax.swing.*;
 import java.awt.*;
-import java.util.ArrayList;
 
 public abstract class Shape2D implements Bouncable {
 
@@ -39,26 +37,21 @@ public abstract class Shape2D implements Bouncable {
     {
         pos.addVector(speed);
 
-        SingletonFrame frame = SingletonFrame.getInstance();
         if(d.getHeight() < highestY())
         {
-            //pos.addVector(new Vector2D(0, -2*(pos.getY()-frame.getHeight())));
             speed.invertY();
         }
         if(lowestY() < 0)
         {
-            //pos.addVector(new Vector2D(0, 2*(0-pos.getY())));
             speed.invertY();
         }
 
         if(d.getWidth() < highestX())
         {
-            //pos.addVector(new Vector2D(-2*(pos.getX()-frame.getWidth()), 0));
             speed.invertX();
         }
         if(lowestX() < 0)
         {
-            //pos.addVector(new Vector2D(2*(0-pos.getX()),0));
             speed.invertX();
         }
     }
