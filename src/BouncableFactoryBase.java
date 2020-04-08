@@ -6,7 +6,7 @@ public class BouncableFactoryBase {
     private static final int MAXSIZE = 20;
     private static final int MINSIZE = 10;
     private static final int MAX_CARTESIAN_SPEED = 3;
-    private static final Displayer d = SingletonFrame.getInstance();
+    private static Displayer d = SingletonFrame.getInstance();
 
     private static int size;
     private static int x;
