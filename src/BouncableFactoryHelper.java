@@ -1,7 +1,7 @@
 import javax.swing.*;
 import java.util.Random;
 
-public class BouncableFactoryBase {
+public class BouncableFactoryHelper {
     private static Random rand = new Random();
     private static final int MAXSIZE = 20;
     private static final int MINSIZE = 10;
