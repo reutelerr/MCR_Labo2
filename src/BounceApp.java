@@ -23,7 +23,6 @@ public class BounceApp {
 
 
     private LinkedList<Bouncable> bouncers;
-    private BouncableFactory myFactory;
     private final SingletonFrame frame;
     private static final int GENERATED_SHAPES = 10;
     private static final int REFRESH_PERIOD = 10;
@@ -57,13 +56,11 @@ public class BounceApp {
                         break;
                     }
                     case KeyEvent.VK_B:{
-                        myFactory = EmptyBouncableFactory.getInstance();
-                        generateShapes(GENERATED_SHAPES);
+                        generateShapes(GENERATED_SHAPES, FullBouncableFactory.getInstance());
                         break;
                     }
                     case KeyEvent.VK_F:{
-                        myFactory = FullBouncableFactory.getInstance();
-                        generateShapes(GENERATED_SHAPES);
+                        generateShapes(GENERATED_SHAPES, FullBouncableFactory.getInstance());
                         break;
                     }
                     case KeyEvent.VK_Q:{
@@ -116,7 +113,7 @@ public class BounceApp {
      * Generates n shapes of each concrete shape kind
      * @param n
      */
-    private void generateShapes(int n) {
+    private void generateShapes(int n, BouncableFactory myFactory) {
         for (int i = 0; i < n; ++i) {
             bouncers.add(myFactory.createCircle());
             bouncers.add(myFactory.createSquare());

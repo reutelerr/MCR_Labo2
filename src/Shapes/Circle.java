@@ -20,15 +20,15 @@ public class Circle extends Shape2D
 {
     /**
      * Constructor
-     *
-     * @param initPos   position in frame (left-hand corner)
+     *  @param initPos   position in frame (left-hand corner)
      * @param initSpeed speed
      * @param size      radius
      * @param renderer  renderer
+     * @param c
      */
-    public Circle(Vector2D initPos, Vector2D initSpeed, int size, Renderable renderer)
+    public Circle(Vector2D initPos, Vector2D initSpeed, int size, Renderable renderer, Color c)
     {
-        super(initPos, initSpeed, size, renderer);
+        super(initPos, initSpeed, size, renderer, c);
     }
 
     @Override

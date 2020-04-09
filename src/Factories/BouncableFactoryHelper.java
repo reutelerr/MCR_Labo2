@@ -4,7 +4,9 @@ import Display.*;
 import Display.Render.Renderable;
 import Shapes.*;
         import Util.Vector2D;
-        import java.util.Random;
+
+import java.awt.*;
+import java.util.Random;
 
 public class BouncableFactoryHelper {
     private static Random rand = new Random();
@@ -24,14 +26,15 @@ public class BouncableFactoryHelper {
      * @param r The shape's renderer i.e. its appearance
      * @return A new Circle
      */
-    public static Circle createCircle(Renderable r) {
+    public static Circle createCircle(Renderable r, Color c) {
         generateAttributes();
 
         return new Circle(
                 new Vector2D(x, y),
                 new Vector2D(xSpeed, ySpeed),
                 size,
-                r
+                r,
+                c
         );
     }
 
@@ -40,14 +43,15 @@ public class BouncableFactoryHelper {
      * @param r The shape's renderer i.e. its appearance
      * @return A new Square
      */
-    public static Square createSquare(Renderable r) {
+    public static Square createSquare(Renderable r, Color c) {
         generateAttributes();
 
         return new Square(
                 new Vector2D(x, y),
                 new Vector2D(xSpeed, ySpeed),
                 size,
-                r
+                r,
+                c
         );
 
     }

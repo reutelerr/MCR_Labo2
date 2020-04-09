@@ -19,14 +19,8 @@ public class FullRenderer implements  Renderable{
 
     @Override
     public void display(Graphics2D g, Bouncable b) {
-        if(b instanceof Circle)
-        {
-            g.setColor(Color.BLUE);
-        }
-        else if(b instanceof Square)
-        {
-            g.setColor(Color.ORANGE);
-        }
+        g.setStroke();
+        g.setColor(b.getColor());
         g.fill(b.getShape());
     }
 

@@ -35,7 +35,7 @@ public abstract class Shape2D implements Bouncable {
      * @param size      length of side
      * @param r         renderer
      */
-    Shape2D(Vector2D initPos, Vector2D initSpeed, int size, Renderable r)
+    Shape2D(Vector2D initPos, Vector2D initSpeed, int size, Renderable r, Color c)
     {
         pos = initPos;
         speed = initSpeed;
@@ -43,6 +43,7 @@ public abstract class Shape2D implements Bouncable {
         this.size = size;
 
         d = SingletonFrame.getInstance();
+        this.c = c;
     }
 
     @Override

@@ -20,14 +20,7 @@ public class EmptyRenderer implements  Renderable{
 
     @Override
     public void display(Graphics2D g, Bouncable b) {
-        if(b instanceof Circle)
-        {
-            g.setColor(Color.GREEN);
-        }
-        else if(b instanceof Square)
-        {
-            g.setColor(Color.RED);
-        }
+        g.setColor(b.getColor());
         g.draw(b.getShape());
     }
 

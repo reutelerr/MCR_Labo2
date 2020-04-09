@@ -15,17 +15,19 @@ import Shapes.Bouncable;
 import Shapes.Circle;
 import Shapes.Square;
 
+import java.awt.*;
+
 public class FullBouncableFactory implements BouncableFactory{
     private static final Renderable renderer = FullRenderer.getInstance();
 
     @Override
     public Circle createCircle() {
-        return BouncableFactoryHelper.createCircle(renderer);
+        return BouncableFactoryHelper.createCircle(renderer, Color.BLUE);
     }
 
     @Override
     public Square createSquare() {
-        return BouncableFactoryHelper.createSquare(renderer);
+        return BouncableFactoryHelper.createSquare(renderer, Color.YELLOW);
     }
 
 
