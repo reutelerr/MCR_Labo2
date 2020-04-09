@@ -11,7 +11,6 @@ package Factories;
 
 import Display.Render.FullRenderer;
 import Display.Render.Renderable;
-import Shapes.Bouncable;
 import Shapes.Circle;
 import Shapes.Square;
 
@@ -27,7 +26,7 @@ public class FullBouncableFactory implements BouncableFactory{
 
     @Override
     public Square createSquare() {
-        return BouncableFactoryHelper.createSquare(renderer, Color.YELLOW);
+        return BouncableFactoryHelper.createSquare(renderer, Color.ORANGE);
     }
 
 

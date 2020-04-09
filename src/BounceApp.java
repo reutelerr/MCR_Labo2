@@ -13,6 +13,7 @@ import Factories.BouncableFactory;
 import Factories.EmptyBouncableFactory;
 import Factories.FullBouncableFactory;
 import Shapes.Bouncable;
+
 import java.awt.event.KeyAdapter;
 import java.awt.event.KeyEvent;
 import java.util.LinkedList;
@@ -34,17 +35,6 @@ public class BounceApp {
     BounceApp()
     {
         bouncers = new LinkedList<Bouncable>();
-        EmptyBouncableFactory emptyBouncableFactory = EmptyBouncableFactory.getInstance();
-        FullBouncableFactory fullBouncableFactory = FullBouncableFactory.getInstance();
-
-        //Formes de départ : 5 de chaque type (TEMPORAIRE : que des cercles)
-        for(int i=0; i<5; ++i)
-        {
-            bouncers.add(emptyBouncableFactory.createCircle());
-            bouncers.add(fullBouncableFactory.createCircle());
-            bouncers.add(emptyBouncableFactory.createSquare());
-            bouncers.add(fullBouncableFactory.createSquare());
-        }
 
         frame = SingletonFrame.getInstance();
         frame.addKeyListener(new KeyAdapter() { //KeyAdapter et non KeyListener pour ne pas avoir à impl toutes les methodes
@@ -56,7 +46,7 @@ public class BounceApp {
                         break;
                     }
                     case KeyEvent.VK_B:{
-                        generateShapes(GENERATED_SHAPES, FullBouncableFactory.getInstance());
+                        generateShapes(GENERATED_SHAPES, EmptyBouncableFactory.getInstance());
                         break;
                     }
                     case KeyEvent.VK_F:{
