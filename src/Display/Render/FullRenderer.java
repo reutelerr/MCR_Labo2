@@ -19,7 +19,6 @@ public class FullRenderer implements  Renderable{
 
     @Override
     public void display(Graphics2D g, Bouncable b) {
-        g.setStroke();
         g.setColor(b.getColor());
         g.fill(b.getShape());
     }
