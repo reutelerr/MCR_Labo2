@@ -1,31 +1,53 @@
-import java.awt.*;
+/*
+ * Laboratoire : 02
+ * Fichier     : BounceApp.java
+ * Auteur(s)   : Delhomme Claire, Reuteler Robin
+ * Date        : 09.04.2020
+ *
+ * But         : Application qui permet d'instancier des cercles et des carrés et de les déplacer dans un
+ *               espace d'affichage graphique commun.
+ */
+
+import Display.SingletonFrame;
+import Factories.BouncableFactory;
+import Factories.EmptyBouncableFactory;
+import Factories.FullBouncableFactory;
+import Shapes.Bouncable;
 import java.awt.event.KeyAdapter;
 import java.awt.event.KeyEvent;
-import java.util.*;
+import java.util.LinkedList;
+import java.util.Timer;
+import java.util.TimerTask;
 
 public class BounceApp {
 
-    private LinkedList<Bouncable> bouncers;
-    private EmptyBouncableFactory emptyBouncableFactory;
-    private FullBouncableFactory fullBouncableFactory;
-    private SingletonFrame frame = SingletonFrame.getInstance();
 
+    private LinkedList<Bouncable> bouncers;
+    private BouncableFactory myFactory;
+    private final SingletonFrame frame;
+    private static final int GENERATED_SHAPES = 10;
+    private static final int REFRESH_PERIOD = 10;
+
+
+    /**
+     * Constructor initializes frame
+     */
     BounceApp()
     {
         bouncers = new LinkedList<Bouncable>();
-        emptyBouncableFactory = new EmptyBouncableFactory();
-        fullBouncableFactory = new FullBouncableFactory();
+        EmptyBouncableFactory emptyBouncableFactory = EmptyBouncableFactory.getInstance();
+        FullBouncableFactory fullBouncableFactory = FullBouncableFactory.getInstance();
 
         //Formes de départ : 5 de chaque type (TEMPORAIRE : que des cercles)
         for(int i=0; i<5; ++i)
         {
             bouncers.add(emptyBouncableFactory.createCircle());
             bouncers.add(fullBouncableFactory.createCircle());
-            bouncers.add(emptyBouncableFactory.createRectangle());
-            bouncers.add(fullBouncableFactory.createRectangle());
+            bouncers.add(emptyBouncableFactory.createSquare());
+            bouncers.add(fullBouncableFactory.createSquare());
         }
 
-
+        frame = SingletonFrame.getInstance();
         frame.addKeyListener(new KeyAdapter() { //KeyAdapter et non KeyListener pour ne pas avoir à impl toutes les methodes
             @Override
             public void keyPressed(KeyEvent e) {
@@ -35,11 +57,13 @@ public class BounceApp {
                         break;
                     }
                     case KeyEvent.VK_B:{
-                        generateEmpty(10);
+                        myFactory = EmptyBouncableFactory.getInstance();
+                        generateShapes(GENERATED_SHAPES);
                         break;
                     }
                     case KeyEvent.VK_F:{
-                       generateFull(10);
+                        myFactory = FullBouncableFactory.getInstance();
+                        generateShapes(GENERATED_SHAPES);
                         break;
                     }
                     case KeyEvent.VK_Q:{
@@ -51,44 +75,51 @@ public class BounceApp {
         });
     }
 
+    /**
+     * Execution of program : periodical shapes movement and rendering
+     */
     public void loop()
     {
         Timer clock = new Timer();
         clock.scheduleAtFixedRate(new TimerTask() {
             @Override
             public void run() {
-                frame.createImage(frame.getWidth(), frame.getHeight());
-                for(Bouncable b : bouncers)
+                frame.createImage();
+                for(Bouncable b : new LinkedList<Bouncable>(bouncers))
                 {
                     b.move();
                     b.draw();
                 }
                 frame.repaint();
             }
-        },0, 10);
+        },0, REFRESH_PERIOD);
+
     }
 
+    /**
+     * Main
+     *
+     * @param args
+     */
     public static void main(String[] args) {
         new BounceApp().loop();
     }
 
+    /**
+     * Erases all bouncers
+     */
     private void erase(){
         bouncers = new LinkedList<Bouncable>();
     }
 
-    private void generateEmpty(int n){
-        for(int i=0; i<n; ++i)
-        {
-            bouncers.add(emptyBouncableFactory.createCircle());
-            bouncers.add(emptyBouncableFactory.createRectangle());
-        }
-    }
-
-    private void generateFull(int n){
-        for(int i=0; i<n; ++i)
-        {
-            bouncers.add(fullBouncableFactory.createCircle());
-            bouncers.add(fullBouncableFactory.createRectangle());
+    /**
+     * Generates n shapes of each concrete shape kind
+     * @param n
+     */
+    private void generateShapes(int n) {
+        for (int i = 0; i < n; ++i) {
+            bouncers.add(myFactory.createCircle());
+            bouncers.add(myFactory.createSquare());
         }
     }
 

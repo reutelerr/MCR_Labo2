@@ -1,15 +1,27 @@
+/*
+ * Laboratoire : 02
+ * Fichier     : SingletonFrame.java
+ * Auteur(s)   : Delhomme Claire, Reuteler Robin
+ * Date        : 09.04.2020
+ *
+ * But         : Affichage unique de notre application
+ */
+
+package Display;
+
 import javax.swing.*;
 import java.awt.*;
-import java.awt.event.*;
-import java.util.ArrayList;
-import java.util.Timer;
-import java.util.TimerTask;
+import java.awt.event.KeyAdapter;
+import java.awt.event.WindowAdapter;
+import java.awt.event.WindowEvent;
 
 public class SingletonFrame implements Displayer
 {
     private Image image;
     private JFrame frame;
+    private static final int SIDE = 500;
 
+    //Singleton
     private static class Instance
     {
         static SingletonFrame instance = new SingletonFrame();
@@ -18,10 +30,9 @@ public class SingletonFrame implements Displayer
     private SingletonFrame()
     {
         frame = new JFrame("Bouncers");
-        frame.setSize(500, 500);
+        frame.setSize(SIDE, SIDE);
         frame.setVisible(true);
         image = frame.createImage(getWidth(), getHeight());
-
 
         frame.addWindowListener(new WindowAdapter() {
         @Override
@@ -39,9 +50,11 @@ public class SingletonFrame implements Displayer
         return Instance.instance;
     }
 
-    public Image createImage(int width, int height) {
-        this.image = frame.createImage(width, height);
-        return image;
+    /**
+     * Refreshes blank image
+     */
+    public void createImage() {
+        this.image = frame.createImage(frame.getWidth(), frame.getHeight());
     }
 
     @Override
@@ -57,7 +70,6 @@ public class SingletonFrame implements Displayer
     @Override
     public Graphics2D getGraphics() {
         return (Graphics2D)image.getGraphics();
-        //return (Graphics2D)getInstance().image.getGraphics();
     }
 
     @Override
