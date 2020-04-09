@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="iso-8859-15" standalone="no"?>
 <classDiagram>
   <diagramElements defaultViewEntities="ALL" defaultViewEnum="true" defaultViewMethods="TYPE_AND_NAME" defaultVisibleTypes="true" informations="" name="">
+<<<<<<< HEAD
     <inheritance id="16772">
       <child>14020</child>
       <parent>14304</parent>
@@ -180,6 +181,14 @@
       <method isAbstract="true" isStatic="false" name="repaint" returnType="void" view="DEFAULT" visibility="PUBLIC"/>
       <method isAbstract="true" isStatic="false" name="setTitle" returnType="void" view="DEFAULT" visibility="PUBLIC">
         <variable const="false" name="k" type="KeyAdapter"/>
+=======
+    <entity entityType="CLASS" id="14020" isAbstract="false" name="Shapes.Shape2D" visibility="PUBLIC"/>
+    <entity entityType="CLASS" id="13909" isAbstract="false" name="Factories.EmptyBouncableFactory" visibility="PUBLIC"/>
+    <entity entityType="CLASS" id="13908" isAbstract="false" name="Factories.FullBouncableFactory" visibility="PUBLIC"/>
+    <entity entityType="CLASS" id="13853" isAbstract="true" name="Factories.BouncableFactory" visibility="PUBLIC">
+      <method isAbstract="true" isStatic="false" name="getCircles" returnType="LinkedList&lt;Circles&gt;" view="DEFAULT" visibility="PUBLIC">
+        <variable const="false" name="n" type="int"/>
+>>>>>>> f96fed02770772f197f35521f9dd49ce0e1ec2a8
       </method>
       <method isAbstract="true" isStatic="false" name="addKeyListener" returnType="void" view="DEFAULT" visibility="PUBLIC"/>
     </entity>
@@ -237,6 +246,7 @@
       </method>
       <method isAbstract="false" isStatic="true" name="generateAttributes" returnType="void" view="DEFAULT" visibility="PRIVATE"/>
     </entity>
+<<<<<<< HEAD
     <entity entityType="CLASS" id="13850" isAbstract="false" name="Square" visibility="PUBLIC"/>
     <entity entityType="CLASS" id="13847" isAbstract="false" name="SingletonFrame" visibility="PUBLIC">
       <attribute const="false" defaultValue="" isStatic="false" name="image" type="Image" visibility="PRIVATE"/>
@@ -267,6 +277,18 @@
       <method isAbstract="true" isStatic="false" name="lowestY" returnType="int" view="DEFAULT" visibility="PUBLIC"/>
       <method isAbstract="true" isStatic="false" name="highestY" returnType="int" view="DEFAULT" visibility="PUBLIC"/>
     </entity>
+=======
+    <entity entityType="CLASS" id="13851" isAbstract="false" name="Display.Render.Renderable" visibility="PUBLIC"/>
+    <entity entityType="CLASS" id="13850" isAbstract="false" name="Square" visibility="PUBLIC">
+      <attribute const="false" defaultValue="" isStatic="false" name="full" type="boolean" visibility="PRIVATE"/>
+    </entity>
+    <entity entityType="CLASS" id="13849" isAbstract="true" name="Shapes.Bouncable" visibility="PUBLIC"/>
+    <entity entityType="CLASS" id="13848" isAbstract="false" name="Shapes.Circle" visibility="PUBLIC">
+      <attribute const="false" defaultValue="" isStatic="false" name="full" type="boolean" visibility="PRIVATE"/>
+    </entity>
+    <entity entityType="CLASS" id="13847" isAbstract="false" name="Display.SingletonFrame" visibility="PUBLIC"/>
+    <entity entityType="INTERFACE" id="13846" isAbstract="true" name="Display.Displayer" visibility="PUBLIC"/>
+>>>>>>> f96fed02770772f197f35521f9dd49ce0e1ec2a8
   </diagramElements>
   <umlView grid="10" name="Main view" open="true">
     <relationView color="-12566464" relationId="17057">

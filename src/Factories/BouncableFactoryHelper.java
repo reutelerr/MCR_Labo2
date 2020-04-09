@@ -1,5 +1,10 @@
-import javax.swing.*;
-import java.util.Random;
+package Factories;
+
+import Display.*;
+import Display.Render.Renderable;
+import Shapes.*;
+        import Util.Vector2D;
+        import java.util.Random;
 
 public class BouncableFactoryHelper {
     private static Random rand = new Random();
@@ -14,6 +19,11 @@ public class BouncableFactoryHelper {
     private static double xSpeed;
     private static double ySpeed;
 
+    /**
+     * Creates a Circle by generating random attributes, and giving it a renderer
+     * @param r The shape's renderer i.e. its appearance
+     * @return A new Circle
+     */
     public static Circle createCircle(Renderable r) {
         generateAttributes();
 
@@ -25,10 +35,15 @@ public class BouncableFactoryHelper {
         );
     }
 
-    public static Rectangle createRectangle(Renderable r) {
+    /**
+     * Creates a Square by generating random attributes, and giving it a renderer
+     * @param r The shape's renderer i.e. its appearance
+     * @return A new Square
+     */
+    public static Square createSquare(Renderable r) {
         generateAttributes();
 
-        return new Rectangle(
+        return new Square(
                 new Vector2D(x, y),
                 new Vector2D(xSpeed, ySpeed),
                 size,
@@ -37,6 +52,9 @@ public class BouncableFactoryHelper {
 
     }
 
+    /**
+     * Sets attributes for the next Bouncable
+     */
     private static void generateAttributes(){
         size = rand.nextInt(MAXSIZE - MINSIZE) + MINSIZE;
         x = rand.nextInt(d.getWidth() - 2*size) + size;
